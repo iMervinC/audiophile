@@ -11,7 +11,14 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1 className="text-blue-800">Hello</h1>
+        <h1>Morbi interdum mollis sapien</h1>
+        <h2>Morbi interdum mollis sapien</h2>
+        <h3>Morbi interdum mollis sapien</h3>
+        <h4>Morbi interdum mollis sapien</h4>
+        <h5>Morbi interdum mollis sapien</h5>
+        <h6>Morbi interdum mollis sapien</h6>
+        <p className="overline">Morbi interdum mollis sapien</p>
+        <p className="sub-title">Morbi interdum mollis sapien</p>
       </main>
     </div>
   )
