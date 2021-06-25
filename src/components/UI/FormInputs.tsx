@@ -11,6 +11,7 @@ interface RadioT {
   name?: string
   id?: string
   placeholder: string
+  selected: boolean
 }
 
 interface CounterT {
@@ -35,9 +36,7 @@ export const TextField = ({ name, id, placeholder, label }: TF) => {
   )
 }
 
-export const Radio = ({ placeholder, id, name }: RadioT) => {
-  const [selected, setSelected] = useState(false)
-
+export const Radio = ({ placeholder, id, name, selected = false }: RadioT) => {
   return (
     <div
       className={`flex items-center pl-6 w-[309px] h-[56px] rounded-lg border-2  ${
