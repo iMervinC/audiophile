@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 export const Button = ({
   type = 'submit',
@@ -28,17 +28,15 @@ export const Button = ({
   )
 }
 
-export const ButtonArrow = ({
-  cb,
-  className,
-}: {
+export const ButtonArrow: FC<{
   className?: string
   cb?: () => void
-}) => {
+}> = ({ cb, className }) => {
   return (
     <button
       onClick={cb}
       className={`${className} sub-title w-[fit-content] h-[fit-content] text-grey-shop hover:text-main`}
+      title="Button"
     >
       Shop
       <svg

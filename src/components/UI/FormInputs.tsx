@@ -11,7 +11,7 @@ interface RadioT {
   name?: string
   id?: string
   placeholder: string
-  selected: boolean
+  selected?: boolean
 }
 
 interface CounterT {
