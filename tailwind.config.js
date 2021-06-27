@@ -10,6 +10,9 @@ module.exports = {
       center: true,
     },
     extend: {
+      height: {
+        mobilenav: 'calc(100vh - 106px)',
+      },
       colors: {
         main: {
           DEFAULT: '#D87D4A',
