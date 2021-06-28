@@ -10,7 +10,7 @@ export const Button = ({
   type?: 'button' | 'submit' | 'reset'
   className?: string
   label: string
-  variant?: 'main' | 'bnw'
+  variant?: 'main' | 'bnw' | 'wnb'
   cb?: () => void
 }) => {
   return (
@@ -19,6 +19,8 @@ export const Button = ({
       className={`${className} ${
         variant === 'main'
           ? 'bg-main text-white hover:bg-main-second'
+          : variant === 'bnw'
+          ? 'text-white bg-black  hover:bg-[#4c4c4c]'
           : 'bg-white hover:text-white hover:bg-black border-2 border-black'
       } w-40 h-12 transition-colors sub-title`}
       type={type}

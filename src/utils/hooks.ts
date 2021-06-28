@@ -13,9 +13,5 @@ export const useGetScroll = () => {
     return () => window.removeEventListener('scroll', pos)
   }, [])
 
-  // useEffect(() => {
-  //   console.log(positionY)
-  // }, [positionY])
-
   return { scrollY: positionY }
 }

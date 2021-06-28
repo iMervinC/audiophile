@@ -36,9 +36,7 @@ const Nav = () => {
     <div
       className={`fixed w-full z-[100]  ${nav !== 'home' && 'bg-black'} ${
         scroll && 'bg-black'
-      }
-      
-      `}
+      }`}
     >
       <nav
         className={`flex container items-center sm:justify-between border-b border-grey-shop px-[17px] lg:px-0 transition-all ease-out duration-500 ${
@@ -114,4 +112,4 @@ const MobileNav = () => {
   )
 }
 
-export default Nav
+export { Nav }
