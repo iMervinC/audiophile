@@ -1,9 +1,9 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useLayoutEffect } from 'react'
 import Img from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-
 import { CategoryCard } from '@/components/UI'
+import { useGetScroll } from '@/utils/hooks'
 
 type Navigation = 'home' | 'headphones' | 'speakers' | 'earphones'
 
@@ -12,9 +12,8 @@ const Nav = () => {
   const navs: Navigation[] = ['home', 'headphones', 'speakers', 'earphones']
   const [toggle, settoggle] = useState(false)
   const [nav, setNav] = useState('home')
-
-  const navRef = useRef(null)
-
+  const { scrollY } = useGetScroll()
+  const [scroll, setScroll] = useState(false)
   useEffect(() => {
     const storedNav = localStorage.getItem('Nav') || 'home'
     setNav(storedNav)
@@ -29,14 +28,23 @@ const Nav = () => {
     localStorage.setItem('Nav', nav)
   }, [nav])
 
+  useEffect(() => {
+    scrollY > 100 ? setScroll(true) : setScroll(false)
+  }, [scrollY])
+
   return (
     <div
-      className={`fixed w-full z-[100]  ${
-        nav === 'home' ? 'bg-transparent' : 'bg-black'
-      }`}
-      ref={navRef}
+      className={`fixed w-full z-[100]  ${nav !== 'home' && 'bg-black'} ${
+        scroll && 'bg-black'
+      }
+      
+      `}
     >
-      <nav className="flex container items-center py-[40px] sm:justify-between border-b border-grey-shop px-[17px] lg:px-0 ">
+      <nav
+        className={`flex container items-center sm:justify-between border-b border-grey-shop px-[17px] lg:px-0 transition-all ease-out duration-500 ${
+          scroll ? 'py-[20px]' : ' py-[40px]'
+        }`}
+      >
         <svg
           className="mr-9 sm:mr-0 lg:hidden text-white hover:text-main fill-current"
           width="16"
