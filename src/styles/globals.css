@@ -60,6 +60,10 @@
 }
 
 @layer components {
+  .mobile-nav {
+    @apply fixed w-full z-50 top-[106px] left-0 bg-white rounded-b-xl flex flex-col justify-between items-center max-w-[1150px] space-y-20 h-mobilenav pt-10 pb-20 sm:h-[fit-content] overflow-auto sm:flex-row sm:space-y-0 sm:space-x-5 sm:px-5 lg:hidden sm:pt-16 sm:pb-40;
+  }
+
   .title {
     font-size: 58px;
     line-height: 56px;

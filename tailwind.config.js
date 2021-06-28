@@ -39,6 +39,13 @@ module.exports = {
         mobile: '73% bottom',
         tablet: '82% bottom',
       },
+      // animation: {},
+      // keyframes: {
+      //   top: {
+      //     '0%' : {},
+      //     '100%' : {},
+      //   }
+      // },
     },
   },
   variants: {
