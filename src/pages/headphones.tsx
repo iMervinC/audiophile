@@ -1,7 +1,10 @@
 import { PageWrap } from '@/components/Wrapper'
 import { Categories, About, CategoryTitle } from '@/components/Sections'
+import { useGetProductsByCategories } from '@/utils/hooks'
 
-const headphones = () => {
+const Headphones = () => {
+  const { data } = useGetProductsByCategories('headphones')
+
   return (
     <PageWrap title="Headphones">
       <CategoryTitle title="Headphones" />
@@ -11,4 +14,4 @@ const headphones = () => {
   )
 }
 
-export default headphones
+export default Headphones

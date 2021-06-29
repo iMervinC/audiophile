@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useLayoutEffect } from 'react'
+import { useState, useEffect } from 'react'
 import Img from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
