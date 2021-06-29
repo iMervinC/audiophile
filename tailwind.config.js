@@ -40,6 +40,9 @@ module.exports = {
         earphone: "url('/home/desktop/image-earphones-yx1.jpg')",
         'earphone-tablet': "url('/home/tablet/image-earphones-yx1.jpg')",
         'earphone-mobile': "url('/home/mobile/image-earphones-yx1.jpg')",
+        about: "url('/shared/desktop/image-best-gear.jpg')",
+        'about-tablet': "url('/shared/tablet/image-best-gear.jpg')",
+        'about-mobile': "url('/shared/mobile/image-best-gear.jpg')",
       }),
       backgroundSize: {
         mobile: '1500px',

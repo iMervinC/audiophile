@@ -4,8 +4,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { CategoryCard } from '@/components/UI'
 import { useGetScroll } from '@/utils/hooks'
-
-type Navigation = 'home' | 'headphones' | 'speakers' | 'earphones'
+import { Navigation } from '@/utils/types'
 
 const Nav = () => {
   const route = useRouter()
@@ -14,6 +13,7 @@ const Nav = () => {
   const [nav, setNav] = useState('home')
   const { scrollY } = useGetScroll()
   const [scroll, setScroll] = useState(false)
+
   useEffect(() => {
     const storedNav = localStorage.getItem('Nav') || 'home'
     setNav(storedNav)
@@ -34,7 +34,7 @@ const Nav = () => {
 
   return (
     <div
-      className={`fixed w-full z-[100]  ${nav !== 'home' && 'bg-black'} ${
+      className={`fixed w-full z-[100] top-0 ${nav !== 'home' && 'bg-black'} ${
         scroll && 'bg-black'
       }`}
     >

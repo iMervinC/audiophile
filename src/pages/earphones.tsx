@@ -1,7 +1,14 @@
-import React from 'react'
+import { PageWrap } from '@/components/Wrapper'
+import { Categories, About, CategoryTitle } from '@/components/Sections'
 
 const earphones = () => {
-  return <div>earphones</div>
+  return (
+    <PageWrap title="Earphones">
+      <CategoryTitle title="Earphones" />
+      <Categories />
+      <About />
+    </PageWrap>
+  )
 }
 
 export default earphones

@@ -48,3 +48,5 @@ export type MyController<T = any> = (
   req: MyApiRequest,
   res: NextApiResponse<T>
 ) => Promise<void>
+
+export type Navigation = 'home' | 'headphones' | 'speakers' | 'earphones'

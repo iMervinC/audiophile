@@ -1,5 +1,5 @@
 import { PageWrap } from '@/components/Wrapper'
-import { Hero, Categories, ProductPreview } from '@/components/Sections'
+import { Hero, Categories, ProductPreview, About } from '@/components/Sections'
 
 export default function Home() {
   return (
@@ -7,6 +7,7 @@ export default function Home() {
       <Hero />
       <Categories />
       <ProductPreview />
+      <About />
     </PageWrap>
   )
 }

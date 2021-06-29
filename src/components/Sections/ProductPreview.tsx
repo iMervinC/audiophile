@@ -28,6 +28,7 @@ const ProductPreview = () => {
         <h4 className="text-4xl">ZX7 SPEAKER</h4>
         <Button variant="wnb" label="See Product" />
       </div>
+
       <div className="flex flex-col md:flex-row space-y-10 md:space-x-10 md:space-y-0 h-[424px] lg:h-[320px]">
         <div className="bg-earphone-mobile bg-no-repeat bg-cover rounded-xl h-full md:w-full sm:bg-earphone-tablet md:bg-earphone bg-center" />
         <div className="flex justify-center bg-grey flex-col h-full md:w-full rounded-xl space-y-7 px-9">
