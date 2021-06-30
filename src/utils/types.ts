@@ -6,7 +6,7 @@ export interface Products {
   slug: string
   name: string
   image: Image
-  category: string
+  category: 'earphones' | 'headphones' | 'speakers'
   new: boolean
   price: number
   description: string

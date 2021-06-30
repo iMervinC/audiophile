@@ -37,11 +37,13 @@ const Nav = () => {
       className={`fixed w-full z-[100] top-0 ${nav !== 'home' && 'bg-black'} ${
         scroll && 'bg-black'
       }`}
+      data-testid="wrapper"
     >
       <nav
         className={`flex container items-center sm:justify-between border-b border-grey-shop px-[17px] lg:px-0 transition-all ease-out duration-500 ${
           scroll ? 'py-[20px]' : ' py-[40px]'
         }`}
+        data-testid="nav"
       >
         <svg
           className="mr-9 sm:mr-0 lg:hidden text-white hover:text-main fill-current"
