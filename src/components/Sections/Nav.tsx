@@ -66,11 +66,13 @@ const Nav = () => {
             setNav('home')
             route.push('/')
           }}
+          data-testid="logo"
         />
 
         <ul className="lg:flex sub-title space-x-[34px] text-white hidden">
           {navs.map((_nav) => (
             <li
+              data-testid={`nav-${_nav}`}
               className={`hover:text-main cursor-pointer ${
                 nav === _nav && 'text-main'
               } `}

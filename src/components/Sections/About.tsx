@@ -2,7 +2,10 @@ import React from 'react'
 
 const About = () => {
   return (
-    <div className="flex flex-col-reverse container px-9 my-60 space-y-10 max-w-[1150px] gap-[50px] h-auto lg:flex-row lg:space-x-10 md:space-y-0 lg:h-[588px] lg:px-0 ">
+    <div
+      data-testid="About"
+      className="flex flex-col-reverse container px-9 my-60 space-y-10 max-w-[1150px] gap-[50px] h-auto lg:flex-row lg:space-x-10 md:space-y-0 lg:h-[588px] lg:px-0 "
+    >
       <div className="flex flex-col text-center lg:text-left lg:justify-center h-full md:w-full">
         <h3 className="title text-4xl mb-10">
           Bringing you the <span className="text-main">best</span> audio gear

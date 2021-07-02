@@ -3,19 +3,25 @@ import axios from 'axios'
 import { Products } from '../types'
 
 export const useGetProducts = () => {
-  const query = useQuery<Products[]>('Products', async () => {
-    const { data } = await axios.get(`/api/products`)
-    return data
-  })
+  const { data, isLoading, isError } = useQuery<Products[]>(
+    'Products',
+    async () => {
+      const { data } = await axios.get(`/api/products`)
+      return data
+    }
+  )
 
-  return query
+  return { data, isLoading, isError }
 }
 
 export const useGetProductsByCategories = (category: Products['category']) => {
-  const query = useQuery<Products[]>(['Products', category], async () => {
-    const { data } = await axios.get(`/api/products/${category}`)
-    return data
-  })
+  const { data, isLoading, isError } = useQuery<Products[]>(
+    ['Products', category],
+    async () => {
+      const { data } = await axios.get(`/api/products/${category}`)
+      return data
+    }
+  )
 
-  return query
+  return { data, isLoading, isError }
 }
