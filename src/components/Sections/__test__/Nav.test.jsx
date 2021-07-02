@@ -1,20 +1,28 @@
 import { render, fireEvent, screen } from '@testing-library/react'
+import { useRouter } from 'next/router'
 import { Nav } from '../Nav'
 
 jest.mock('next/router', () => ({
-  useRouter() {
-    return {
-      route: '/',
-      pathname: '/',
-      query: '',
-      asPath: '',
-    }
-  },
+  useRouter: jest.fn(),
+  // useRouter() {
+  //   return {
+  //     route: '/',
+  //     pathname: '/',
+  //     query: '',
+  //     asPath: '',
+  //   }
+  // },
 }))
 
 let getByTestId = screen.getByTestId
 
 beforeEach(() => {
+  useRouter.mockImplementation(() => ({
+    route: '/',
+    pathname: '/',
+    query: '',
+    asPath: '',
+  }))
   render(<Nav />)
 })
 
@@ -63,4 +71,8 @@ it('Navigation route headphones', () => {
   fireEvent.click(routeHeadphones)
 
   expect(routeHeadphones.classList).toContain('text-main')
+})
+
+it('Logo', () => {
+  expect(getByTestId('logo')).toBeTruthy()
 })

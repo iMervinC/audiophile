@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import { Button } from '@/components/UI'
 
-const ProductPreview = () => {
+const ProductHighlight = () => {
   return (
     <div className="grid container px-8 lg:px-0 max-w-[1150px] gap-[50px] mt-40">
       <div className="flex flex-col items-center justify-evenly bg-main text-center py-12 rounded-xl bg-no-repeat bg-circle-mobile lg:flex-row lg:pb-0  sm:bg-circle-tablet lg:bg-circle">
@@ -12,7 +12,7 @@ const ProductPreview = () => {
             height={493}
             width={410}
             alt="zx9"
-            className="transform translate-y-3"
+            objectFit="contain"
           />
         </div>
         <div className="space-y-7 mx-9 mt-7 sm:mx-40 lg:m-0 lg:w-[349px] lg:text-left">
@@ -40,4 +40,4 @@ const ProductPreview = () => {
   )
 }
 
-export { ProductPreview }
+export { ProductHighlight }

@@ -30,22 +30,12 @@ describe('Headphones Page', () => {
     expect(screen.getByTestId('About')).toBeTruthy()
   })
 
-  test('Products', () => {
-    useGetProductsByCategories.mockImplementation(() => ({
-      data: [
-        {
-          id: 1,
-          name: 'YX1 Wireless Earphones',
-          slug: 'yx1-earphones',
-          category: 'earphones',
-          new: true,
-        },
-      ],
-    }))
-
-    const { getByTestId } = render(<Headphones />, { wrapper })
+  test('Products QHook', () => {
     expect(useGetProductsByCategories).toHaveBeenCalledWith('headphones')
-    expect(getByTestId('yx1-earphones')).toBeTruthy()
+  })
+
+  test('Products', () => {
+    expect(screen.getByTestId('Products list')).toBeTruthy()
   })
 
   test('Loading', () => {

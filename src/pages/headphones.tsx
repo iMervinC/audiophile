@@ -1,5 +1,11 @@
 import { PageWrap } from '@/components/Wrapper'
-import { Categories, About, CategoryTitle } from '@/components/Sections'
+import {
+  Categories,
+  About,
+  CategoryTitle,
+  ProductsPreview,
+} from '@/components/Sections'
+
 import { useGetProductsByCategories } from '@/utils/hooks'
 
 const Headphones = () => {
@@ -8,11 +14,9 @@ const Headphones = () => {
   return (
     <PageWrap title="Headphones">
       <CategoryTitle title="Headphones" />
-      {data?.map((product) => (
-        <div key={product.id} data-testid={product.slug}>
-          <p>{product.name}</p>
-        </div>
-      ))}
+      {isError && <div data-testid="Error">Error</div>}
+      {isLoading && <div data-testid="Loading">Error</div>}
+      <ProductsPreview data={data!} />
       <Categories />
       <About />
     </PageWrap>
