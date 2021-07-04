@@ -1,0 +1,330 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Home/> match Snapshot 1`] = `
+<div>
+  <main>
+    <div
+      class="bg-black bg-hero-mobile lg:bg-hero bg-no-repeat bg-mobile sm:bg-tablet lg:bg-cover text-center lg:text-left"
+      data-testid="Hero"
+    >
+      <div
+        class="flex items-center container h-screen"
+      >
+        <div
+          class="xl:w-[396px] space-y-[24px] mx-[30px] lg:mx-0"
+        >
+          <span
+            class="overline text-main-text50"
+          >
+            new product
+          </span>
+          <h1
+            class="text-white text-4xl sm:title"
+          >
+            XX99 Mark II HeadphoneS
+          </h1>
+          <p
+            class="text-main-text75 font-extralight"
+          >
+            Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.
+          </p>
+          <button
+            class="undefined bg-main text-white hover:bg-main-second w-40 h-12 transition-colors sub-title"
+            type="submit"
+          >
+            See Product
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="container flex flex-col justify-between items-center max-w-[1150px] my-28 space-y-20  sm:flex-row sm:space-y-0 sm:space-x-5 "
+      data-testid="Categories"
+    >
+      <div
+        class="text-center sm:w-[350px] w-10/12  relative undefined"
+      >
+        <div
+          style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+        >
+          <div
+            style="box-sizing: border-box; display: block; max-width: 100%;"
+          >
+            <img
+              alt=""
+              aria-hidden="true"
+              role="presentation"
+              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjIyNSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+              style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+            />
+          </div>
+          <noscript />
+          <img
+            class="z-20"
+            decoding="async"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+          />
+        </div>
+        <div
+          class="bg-grey rounded-2xl pt-32 pb-7 absolute w-full top-16 z-10 space-y-5 sm:top-14"
+        >
+          <h6
+            class="uppercase"
+          >
+            headphones
+          </h6>
+          <button
+            class="undefined sub-title w-[fit-content] h-[fit-content] text-grey-shop hover:text-main"
+            title="Button"
+          >
+            Shop
+            <svg
+              class="inline ml-3"
+              height="12"
+              width="8"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1.322 1l5 5-5 5"
+                fill="none"
+                fill-rule="evenodd"
+                stroke="#D87D4A"
+                stroke-width="2"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div
+        class="text-center sm:w-[350px] w-10/12  relative undefined"
+      >
+        <div
+          style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+        >
+          <div
+            style="box-sizing: border-box; display: block; max-width: 100%;"
+          >
+            <img
+              alt=""
+              aria-hidden="true"
+              role="presentation"
+              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjIyNSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+              style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+            />
+          </div>
+          <noscript />
+          <img
+            class="z-20"
+            decoding="async"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+          />
+        </div>
+        <div
+          class="bg-grey rounded-2xl pt-32 pb-7 absolute w-full top-16 z-10 space-y-5 sm:top-14"
+        >
+          <h6
+            class="uppercase"
+          >
+            speakers
+          </h6>
+          <button
+            class="undefined sub-title w-[fit-content] h-[fit-content] text-grey-shop hover:text-main"
+            title="Button"
+          >
+            Shop
+            <svg
+              class="inline ml-3"
+              height="12"
+              width="8"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1.322 1l5 5-5 5"
+                fill="none"
+                fill-rule="evenodd"
+                stroke="#D87D4A"
+                stroke-width="2"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div
+        class="text-center sm:w-[350px] w-10/12  relative undefined"
+      >
+        <div
+          style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+        >
+          <div
+            style="box-sizing: border-box; display: block; max-width: 100%;"
+          >
+            <img
+              alt=""
+              aria-hidden="true"
+              role="presentation"
+              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjIyNSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+              style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+            />
+          </div>
+          <noscript />
+          <img
+            class="z-20"
+            decoding="async"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+          />
+        </div>
+        <div
+          class="bg-grey rounded-2xl pt-32 pb-7 absolute w-full top-16 z-10 space-y-5 sm:top-14"
+        >
+          <h6
+            class="uppercase"
+          >
+            earphones
+          </h6>
+          <button
+            class="undefined sub-title w-[fit-content] h-[fit-content] text-grey-shop hover:text-main"
+            title="Button"
+          >
+            Shop
+            <svg
+              class="inline ml-3"
+              height="12"
+              width="8"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1.322 1l5 5-5 5"
+                fill="none"
+                fill-rule="evenodd"
+                stroke="#D87D4A"
+                stroke-width="2"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="grid container px-8 lg:px-0 max-w-[1150px] gap-[50px] mt-40"
+      data-testid="Product Highlight"
+    >
+      <div
+        class="flex flex-col items-center justify-evenly bg-main text-center py-12 rounded-xl bg-no-repeat bg-circle-mobile lg:flex-row lg:pb-0  sm:bg-circle-tablet lg:bg-circle"
+      >
+        <div
+          class="mx-auto w-[160px] h-[200px] lg:mx-0 lg:w-[410px] lg:h-auto "
+        >
+          <div
+            style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+          >
+            <div
+              style="box-sizing: border-box; display: block; max-width: 100%;"
+            >
+              <img
+                alt=""
+                aria-hidden="true"
+                role="presentation"
+                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDEwIiBoZWlnaHQ9IjQ5MyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+                style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+              />
+            </div>
+            <noscript />
+            <img
+              alt="zx9"
+              decoding="async"
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+              style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"
+            />
+          </div>
+        </div>
+        <div
+          class="space-y-7 mx-9 mt-7 sm:mx-40 lg:m-0 lg:w-[349px] lg:text-left"
+        >
+          <h3
+            class="text-4xl lg:title  text-white"
+          >
+            ZX9 SPEAKER
+          </h3>
+          <p
+            class="text-white font-extralight"
+          >
+            Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.
+          </p>
+          <button
+            class="undefined text-white bg-black  hover:bg-[#4c4c4c] w-40 h-12 transition-colors sub-title"
+            type="submit"
+          >
+            See Product
+          </button>
+        </div>
+      </div>
+      <div
+        class="bg-speaker-mobile bg-no-repeat bg-cover sm:bg-speaker-tablet lg:bg-speaker  space-y-7 px-9 py-32 rounded-xl lg:px-36 lg:py-20"
+      >
+        <h4
+          class="text-4xl"
+        >
+          ZX7 SPEAKER
+        </h4>
+        <button
+          class="undefined bg-white hover:text-white hover:bg-black border-2 border-black w-40 h-12 transition-colors sub-title"
+          type="submit"
+        >
+          See Product
+        </button>
+      </div>
+      <div
+        class="flex flex-col md:flex-row space-y-10 md:space-x-10 md:space-y-0 h-[424px] lg:h-[320px]"
+      >
+        <div
+          class="bg-earphone-mobile bg-no-repeat bg-cover rounded-xl h-full md:w-full sm:bg-earphone-tablet md:bg-earphone bg-center"
+        />
+        <div
+          class="flex justify-center bg-grey flex-col h-full md:w-full rounded-xl space-y-7 px-9"
+        >
+          <h4
+            class="text-4xl"
+          >
+            YX1 EARPHONES
+          </h4>
+          <button
+            class="undefined bg-white hover:text-white hover:bg-black border-2 border-black w-40 h-12 transition-colors sub-title"
+            type="submit"
+          >
+            See Product
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex flex-col-reverse container px-9 my-60 space-y-10 max-w-[1150px] gap-[50px] h-auto lg:flex-row lg:space-x-10 md:space-y-0 lg:h-[588px] lg:px-0 "
+      data-testid="About"
+    >
+      <div
+        class="flex flex-col text-center lg:text-left lg:justify-center h-full md:w-full"
+      >
+        <h3
+          class="title text-4xl mb-10"
+        >
+          Bringing you the 
+          <span
+            class="text-main"
+          >
+            best
+          </span>
+           audio gear
+        </h3>
+        <p>
+          Located at the heart of New York City, Audiophile is the premier store for high end headphones, earphones, speakers, and audio accessories. We have a large showroom and luxury demonstration rooms available for you to browse and experience a wide range of our products. Stop by our store to meet some of the fantastic people who make Audiophile the best place to buy your portable audio equipment.
+        </p>
+      </div>
+      <div
+        class="bg-about-mobile sm:bg-about-tablet lg:bg-about bg-no-repeat bg-cover bg-center h-[300px] w-full rounded-xl lg:h-auto"
+      />
+    </div>
+  </main>
+</div>
+`;

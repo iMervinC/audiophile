@@ -2,7 +2,10 @@ import { Button } from '@/components/UI/Buttons'
 
 const Hero = () => {
   return (
-    <div className="bg-black bg-hero-mobile lg:bg-hero bg-no-repeat bg-mobile sm:bg-tablet lg:bg-cover text-center lg:text-left">
+    <div
+      data-testid="Hero"
+      className="bg-black bg-hero-mobile lg:bg-hero bg-no-repeat bg-mobile sm:bg-tablet lg:bg-cover text-center lg:text-left"
+    >
       <div className="flex items-center container h-screen">
         <div className="xl:w-[396px] space-y-[24px] mx-[30px] lg:mx-0">
           <span className="overline text-main-text50">new product</span>

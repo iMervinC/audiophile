@@ -1,21 +1,53 @@
-import { render, fireEvent, screen } from '@testing-library/react'
-import { QueryClient, QueryClientProvider } from 'react-query'
+import { render, screen } from '@testing-library/react'
 import Earphones from '../earphones'
 import { useGetProductsByCategories } from '@/utils/hooks'
 
-const queryClient = new QueryClient()
-const wrapper = ({ children }) => (
-  <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-)
+const data = [
+  {
+    id: 1,
+    slug: 'xx59-headphones',
+    name: 'XX59 Headphones',
+    category: 'headphones',
+    new: true,
+    image: {
+      desktop: '/home/desktop/image-earphones-yx1.jpg',
+    },
+  },
+  {
+    id: 2,
+    slug: 'asd-headphones',
+    name: 'asd Headphones',
+    category: 'headphones',
+    new: false,
+    image: {
+      desktop: '/home/desktop/image-earphones-yx1.jpg',
+    },
+  },
+]
 
 jest.mock('@/utils/hooks', () => ({
   useGetProductsByCategories: jest.fn(),
 }))
 
-describe('Earphone', () => {
+describe('Earphones', () => {
+  let page
   beforeEach(() => {
-    useGetProductsByCategories.mockImplementation(() => ({}))
-    render(<Earphones />, { wrapper })
+    useGetProductsByCategories.mockImplementation(() => ({ data }))
+    page = render(<Earphones />)
+  })
+
+  test('Products list', () => {
+    expect(useGetProductsByCategories).toHaveBeenCalledWith(
+      'earphones',
+      undefined
+    )
+    data.forEach((item) => {
+      expect(screen.getByText(new RegExp(item.name))).toBeInTheDocument
+    })
+  })
+
+  test('<Earphones/> Snapshot', () => {
+    expect(page.container).toMatchSnapshot()
   })
 
   test('Heading', () => {
@@ -30,35 +62,17 @@ describe('Earphone', () => {
     expect(screen.getByTestId('About')).toBeTruthy()
   })
 
-  test('Products', () => {
-    useGetProductsByCategories.mockImplementation(() => ({
-      data: [
-        {
-          id: 1,
-          name: 'YX1 Wireless Earphones',
-          slug: 'yx1-earphones',
-          category: 'earphones',
-          new: true,
-        },
-      ],
-    }))
-
-    const { getByTestId } = render(<Earphones />, { wrapper })
-    expect(useGetProductsByCategories).toHaveBeenCalledWith('earphones')
-    expect(getByTestId('yx1-earphones')).toBeTruthy()
-  })
-
   test('Loading', () => {
     useGetProductsByCategories.mockImplementation(() => ({ isLoading: true }))
-    render(<Earphones />, { wrapper })
+    render(<Earphones />)
 
     expect(screen.getByTestId('Loading')).toBeTruthy()
   })
 
   test('Error', () => {
     useGetProductsByCategories.mockImplementation(() => ({ isError: true }))
-    const { getByTestId } = render(<Earphones />, { wrapper })
+    render(<Earphones />)
 
-    expect(getByTestId('Error')).toBeTruthy()
+    expect(screen.getByTestId('Error')).toBeTruthy()
   })
 })

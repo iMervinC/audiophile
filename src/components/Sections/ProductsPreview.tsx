@@ -7,16 +7,16 @@ const ProductsPreview = ({ data }: { data: Products[] }) => {
   }
 
   return (
-    <div data-testid="Products list" className="space-y-20 my-28">
+    <ul data-testid="Products list" className="space-y-20 my-28">
       {data?.sort(sortByNew).map((product, index) => (
         <ProductPreviewCard
-          {...product}
           key={product.id}
+          {...product}
           data-testid={product.slug}
           index={index}
         />
       ))}
-    </div>
+    </ul>
   )
 }
 

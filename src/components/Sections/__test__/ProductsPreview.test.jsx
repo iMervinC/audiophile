@@ -1,4 +1,4 @@
-import { render, fireEvent, screen } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import ProductsPreview from '../ProductsPreview'
 
 const data = [
@@ -24,11 +24,14 @@ const data = [
   },
 ]
 
-beforeAll(() => {
+it('Render All', () => {
   render(<ProductsPreview data={data} />)
-})
 
-it('Products', () => {
-  expect(screen.findByTestId(data[0].slug)).toBeTruthy()
-  expect(screen.findByTestId(data[1].slug)).toBeTruthy()
+  data.forEach((item) => {
+    expect(screen.getByText(new RegExp(item.name))).toBeInTheDocument
+  })
+
+  const renderItems = screen.getAllByRole('listitem')
+
+  expect(renderItems.length).toEqual(data.length)
 })

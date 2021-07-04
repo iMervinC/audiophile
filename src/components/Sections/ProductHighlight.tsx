@@ -4,7 +4,10 @@ import { Button } from '@/components/UI'
 
 const ProductHighlight = () => {
   return (
-    <div className="grid container px-8 lg:px-0 max-w-[1150px] gap-[50px] mt-40">
+    <div
+      data-testid="Product Highlight"
+      className="grid container px-8 lg:px-0 max-w-[1150px] gap-[50px] mt-40"
+    >
       <div className="flex flex-col items-center justify-evenly bg-main text-center py-12 rounded-xl bg-no-repeat bg-circle-mobile lg:flex-row lg:pb-0  sm:bg-circle-tablet lg:bg-circle">
         <div className="mx-auto w-[160px] h-[200px] lg:mx-0 lg:w-[410px] lg:h-auto ">
           <Image

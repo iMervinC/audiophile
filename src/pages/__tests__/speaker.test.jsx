@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import Headphones from '../headphones'
+import Speakers from '../speakers'
 import { useGetProductsByCategories } from '@/utils/hooks'
 
 const data = [
@@ -24,24 +24,25 @@ const data = [
     },
   },
 ]
+
 jest.mock('@/utils/hooks', () => ({
   useGetProductsByCategories: jest.fn(),
 }))
 
-describe('Headphones Page', () => {
+describe('Earphone', () => {
   let page
 
   beforeEach(() => {
     useGetProductsByCategories.mockImplementation(() => ({ data }))
-    page = render(<Headphones />)
+    page = render(<Speakers />)
   })
 
-  test('<Headphones/> Snapshot', () => {
+  test('<Earphone/> Snapshot', () => {
     expect(page.container).toMatchSnapshot()
   })
 
   test('Heading', () => {
-    expect(screen.getByTestId('categoryTitle')).toHaveTextContent('Headphones')
+    expect(screen.getByTestId('categoryTitle')).toHaveTextContent('Speakers')
   })
 
   test('Categories Component', () => {
@@ -54,7 +55,7 @@ describe('Headphones Page', () => {
 
   test('Products list', () => {
     expect(useGetProductsByCategories).toHaveBeenCalledWith(
-      'headphones',
+      'speakers',
       undefined
     )
     data.forEach((item) => {
@@ -62,21 +63,17 @@ describe('Headphones Page', () => {
     })
   })
 
-  test('Products', () => {
-    expect(screen.getByTestId('Products list')).toBeTruthy()
-  })
-
   test('Loading', () => {
     useGetProductsByCategories.mockImplementation(() => ({ isLoading: true }))
-    render(<Headphones />)
+    render(<Speakers />)
 
     expect(screen.getByTestId('Loading')).toBeTruthy()
   })
 
   test('Error', () => {
     useGetProductsByCategories.mockImplementation(() => ({ isError: true }))
-    const { getByTestId } = render(<Headphones />)
+    render(<Speakers />)
 
-    expect(getByTestId('Error')).toBeTruthy()
+    expect(screen.getByTestId('Error')).toBeTruthy()
   })
 })
