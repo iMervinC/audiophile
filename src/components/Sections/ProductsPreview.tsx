@@ -7,7 +7,10 @@ const ProductsPreview = ({ data }: { data: Products[] }) => {
   }
 
   return (
-    <ul data-testid="Products list" className="space-y-20 my-28">
+    <ul
+      data-testid="Products list"
+      className="space-y-20 my-28 max-w-[1150px] container"
+    >
       {data?.sort(sortByNew).map((product, index) => (
         <ProductPreviewCard
           key={product.id}

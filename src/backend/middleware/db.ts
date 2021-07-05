@@ -17,7 +17,7 @@ const dbMiddleware = async (
     req.dbClient = client
     req.db = client.db('audiophile')
 
-    console.log('DB Connected')
+    // console.log('DB Connected')
   } catch (err) {
     await client.close()
     console.error(err)

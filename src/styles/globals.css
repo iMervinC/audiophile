@@ -68,6 +68,10 @@
     @apply fixed w-full z-50 top-[106px] left-0 bg-white rounded-b-xl flex flex-col justify-between items-center max-w-[1150px] space-y-20 h-mobilenav pt-10 pb-20 sm:h-[fit-content] overflow-auto sm:flex-row sm:space-y-0 sm:space-x-5 sm:px-5 lg:hidden sm:pt-16 sm:pb-40;
   }
 
+  .preview-card {
+    @apply flex flex-col px-9 lg:px-0 space-x-0 md:space-x-5 space-y-5 md:space-y-0 text-center md:text-left;
+  }
+
   .title {
     font-size: 58px;
     line-height: 56px;

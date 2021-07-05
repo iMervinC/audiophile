@@ -16,7 +16,7 @@ const ProductPreviewCard = (props: ProdPrev) => {
   return (
     <div
       role="listitem"
-      className={`flex flex-col  container max-w-[1150px] px-9 lg:px-0 space-x-0 md:space-x-5 space-y-5 md:space-y-0 text-center md:text-left ${
+      className={`preview-card ${
         index % 2 !== 0 ? 'md:flex-row-reverse' : 'md:flex-row'
       }`}
     >
