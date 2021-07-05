@@ -37,11 +37,11 @@ exports[`<Home/> match Snapshot 1`] = `
         </div>
       </div>
     </div>
-    <div
+    <ul
       class="container flex flex-col justify-between items-center max-w-[1150px] my-28 space-y-20  sm:flex-row sm:space-y-0 sm:space-x-5 "
       data-testid="Categories"
     >
-      <div
+      <li
         class="text-center sm:w-[350px] w-10/12  relative undefined"
       >
         <div
@@ -76,7 +76,7 @@ exports[`<Home/> match Snapshot 1`] = `
           </h6>
           <button
             class="undefined sub-title w-[fit-content] h-[fit-content] text-grey-shop hover:text-main"
-            title="Button"
+            title="Buttonheadphones"
           >
             Shop
             <svg
@@ -95,8 +95,8 @@ exports[`<Home/> match Snapshot 1`] = `
             </svg>
           </button>
         </div>
-      </div>
-      <div
+      </li>
+      <li
         class="text-center sm:w-[350px] w-10/12  relative undefined"
       >
         <div
@@ -131,7 +131,7 @@ exports[`<Home/> match Snapshot 1`] = `
           </h6>
           <button
             class="undefined sub-title w-[fit-content] h-[fit-content] text-grey-shop hover:text-main"
-            title="Button"
+            title="Buttonspeakers"
           >
             Shop
             <svg
@@ -150,8 +150,8 @@ exports[`<Home/> match Snapshot 1`] = `
             </svg>
           </button>
         </div>
-      </div>
-      <div
+      </li>
+      <li
         class="text-center sm:w-[350px] w-10/12  relative undefined"
       >
         <div
@@ -186,7 +186,7 @@ exports[`<Home/> match Snapshot 1`] = `
           </h6>
           <button
             class="undefined sub-title w-[fit-content] h-[fit-content] text-grey-shop hover:text-main"
-            title="Button"
+            title="Buttonearphones"
           >
             Shop
             <svg
@@ -205,8 +205,8 @@ exports[`<Home/> match Snapshot 1`] = `
             </svg>
           </button>
         </div>
-      </div>
-    </div>
+      </li>
+    </ul>
     <div
       class="grid container px-8 lg:px-0 max-w-[1150px] gap-[50px] mt-40"
       data-testid="Product Highlight"

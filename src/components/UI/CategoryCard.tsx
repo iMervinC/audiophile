@@ -11,7 +11,7 @@ export const CategoryCard = ({
   cb?: () => void
 }) => {
   return (
-    <div className={`text-center sm:w-[350px] w-10/12  relative ${className}`}>
+    <li className={`text-center sm:w-[350px] w-10/12  relative ${className}`}>
       <Img
         src={`/shared/desktop/image-${categories}.png`}
         height="225px"
@@ -20,8 +20,8 @@ export const CategoryCard = ({
       />
       <div className="bg-grey rounded-2xl pt-32 pb-7 absolute w-full top-16 z-10 space-y-5 sm:top-14">
         <h6 className="uppercase">{categories}</h6>
-        <ButtonArrow cb={cb} />
+        <ButtonArrow cb={cb} title={categories} />
       </div>
-    </div>
+    </li>
   )
 }

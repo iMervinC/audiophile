@@ -40,18 +40,20 @@ const Nav = () => {
       data-testid="wrapper"
     >
       <nav
-        className={`flex container items-center sm:justify-between border-b border-grey-shop px-[17px] lg:px-0 transition-all ease-out duration-500 ${
-          scroll ? 'py-[20px]' : ' py-[40px]'
+        className={`flex container items-center sm:justify-between border-b border-grey-shop px-[17px] lg:px-0 transition-all ease-out duration-500 py-[40px] ${
+          scroll ? 'lg:py-[20px]' : 'lg:py-[40px]'
         }`}
         data-testid="nav"
       >
         <svg
-          className="mr-9 sm:mr-0 lg:hidden text-white hover:text-main fill-current"
+          className="mr-9 sm:mr-0 block lg:hidden text-white hover:text-main fill-current"
           width="16"
           height="15"
           xmlns="http://www.w3.org/2000/svg"
           onClick={() => settoggle((bol) => !bol)}
+          data-testid="burger"
         >
+          <title>burger</title>
           <g>
             <path d="M0 0h16v3H0zM0 6h16v3H0zM0 12h16v3H0z" />
           </g>
@@ -61,12 +63,12 @@ const Nav = () => {
           src="/shared/desktop/logo.svg"
           height="25px"
           width="143px"
+          alt="logo"
           className="cursor-pointer"
           onClick={() => {
             setNav('home')
             route.push('/')
           }}
-          data-testid="logo"
         />
 
         <ul className="lg:flex sub-title space-x-[34px] text-white hidden">
@@ -102,7 +104,7 @@ const MobileNav = () => {
 
   return (
     <>
-      <div className="mobile-nav">
+      <ul data-testid="mobile-nav" className="mobile-nav">
         {cats.map((cat) => (
           <CategoryCard
             key={cat}
@@ -110,7 +112,7 @@ const MobileNav = () => {
             cb={() => console.log(cat)}
           />
         ))}
-      </div>
+      </ul>
       <div className="bg-[hsla(0,0%,0%,0.7)] w-full h-full fixed top-[106px] left-0 z-[49] lg:hidden" />
     </>
   )

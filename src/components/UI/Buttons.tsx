@@ -33,12 +33,13 @@ export const Button = ({
 export const ButtonArrow: FC<{
   className?: string
   cb?: () => void
-}> = ({ cb, className }) => {
+  title?: string
+}> = ({ cb, className, title }) => {
   return (
     <button
       onClick={cb}
       className={`${className} sub-title w-[fit-content] h-[fit-content] text-grey-shop hover:text-main`}
-      title="Button"
+      title={`Button${title}`}
     >
       Shop
       <svg

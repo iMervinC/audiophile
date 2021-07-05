@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import { Button } from '@/components/UI'
 import { Products } from '@/utils/types'
+import { useRouter } from 'next/router'
 
 interface ProdPrev extends Products {
   index: number
@@ -9,6 +10,9 @@ interface ProdPrev extends Products {
 
 const ProductPreviewCard = (props: ProdPrev) => {
   const { index, image, name, slug, description } = props
+
+  const route = useRouter()
+
   return (
     <div
       role="listitem"
@@ -36,7 +40,10 @@ const ProductPreviewCard = (props: ProdPrev) => {
           <h2 className="text-4xl">{name}</h2>
         </div>
         <p>{description}</p>
-        <Button label="See Product" />
+        <Button
+          label="See Product"
+          cb={() => route.push(`/products/${slug}`)}
+        />
       </div>
     </div>
   )
