@@ -72,6 +72,10 @@
     @apply flex flex-col px-9 lg:px-0 space-x-0 md:space-x-5 space-y-5 md:space-y-0 text-center md:text-left;
   }
 
+  .preview-card-page {
+    @apply flex flex-col px-9 lg:px-0 space-x-0 sm:space-x-10 space-y-5 sm:space-y-0 text-center sm:text-left;
+  }
+
   .title {
     font-size: 58px;
     line-height: 56px;

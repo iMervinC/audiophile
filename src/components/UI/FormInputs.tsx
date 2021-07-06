@@ -1,23 +1,5 @@
-import { SetStateAction, useState, Dispatch } from 'react'
-
-interface TF {
-  name?: string
-  id?: string
-  placeholder: string
-  label: string
-}
-
-interface RadioT {
-  name?: string
-  id?: string
-  placeholder: string
-  selected?: boolean
-}
-
-interface CounterT {
-  count: number
-  setCount: Dispatch<SetStateAction<number>>
-}
+import { SetStateAction, Dispatch } from 'react'
+import { TF, RadioT, CounterT } from '@/utils/types'
 
 export const TextField = ({ name, id, placeholder, label }: TF) => {
   return (
@@ -61,8 +43,9 @@ export const Radio = ({ placeholder, id, name, selected = false }: RadioT) => {
 
 export const Counter = ({ count, setCount }: CounterT) => {
   return (
-    <div className="w-[120px] h-[48px] bg-grey font-bold flex items-center justify-around">
+    <div className="w-[120px] h-[48px] bg-grey font-bold flex items-center justify-around select-none">
       <span
+        role="button"
         className="hover:text-main cursor-pointer"
         onClick={() => setCount(count - 1)}
       >
@@ -70,6 +53,7 @@ export const Counter = ({ count, setCount }: CounterT) => {
       </span>
       <span>{count}</span>
       <span
+        role="button"
         className="hover:text-main cursor-pointer"
         onClick={() => setCount(count + 1)}
       >

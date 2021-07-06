@@ -67,13 +67,15 @@ describe('Earphone', () => {
     useGetProductsByCategories.mockImplementation(() => ({ isLoading: true }))
     render(<Speakers />)
 
-    expect(screen.getByTestId('Loading')).toBeTruthy()
+    expect(screen.queryByTestId('Loading')).toBeInTheDocument()
   })
 
   test('Error', () => {
+    expect(screen.queryByTestId('Error')).not.toBeInTheDocument()
+
     useGetProductsByCategories.mockImplementation(() => ({ isError: true }))
     render(<Speakers />)
 
-    expect(screen.getByTestId('Error')).toBeTruthy()
+    expect(screen.queryByTestId('Error')).toBeInTheDocument()
   })
 })
