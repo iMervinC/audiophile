@@ -76,6 +76,10 @@
     @apply flex flex-col px-9 lg:px-0 space-x-0 sm:space-x-10 space-y-5 sm:space-y-0 text-center sm:text-left;
   }
 
+  .contain-padding {
+    @apply px-9 lg:px-0;
+  }
+
   .title {
     font-size: 58px;
     line-height: 56px;

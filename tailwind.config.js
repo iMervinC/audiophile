@@ -57,13 +57,14 @@ module.exports = {
         'circle-mobile': 'center -56%',
         'circle-tablet': 'center -56%',
       },
-      // animation: {},
-      // keyframes: {
-      //   top: {
-      //     '0%' : {},
-      //     '100%' : {},
-      //   }
-      // },
+      gridTemplateColumns: {
+        gallery: '445px  635px',
+        'gallery-tablet': '277px  395px',
+      },
+      gridTemplateRows: {
+        gallery: '280px 280px',
+        'gallery-tablet': '174px 174px',
+      },
     },
   },
   variants: {

@@ -60,7 +60,7 @@ export const ProductCard = ({
 }) => {
   return (
     <div
-      role="listitem"
+      data-testid="Product Card"
       className={`preview-card-page flex-col mt-8 md:mt-16 sm:flex-row`}
     >
       <div
@@ -78,7 +78,7 @@ export const ProductCard = ({
       <div className="flex flex-col justify-center space-y-9 w-full items-center sm:items-start">
         <div>
           {data.new && <p className="overline text-main ">New Product</p>}
-          <h1 className="text-4xl">{data.name}</h1>
+          <h1 className="text-4xl lg:text-[40px]">{data.name}</h1>
         </div>
         <p>{data.description}</p>
         <span className="font-bold">{'$ ' + data.price}</span>
