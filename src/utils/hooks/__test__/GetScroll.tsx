@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react-hooks'
-import { useGetScroll } from '..'
+import { useGetScroll } from '../GetScroll'
 
 describe('Get Scroll Position', () => {
   const {

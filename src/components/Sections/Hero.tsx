@@ -1,6 +1,8 @@
 import { Button } from '@/components/UI/Buttons'
+import { useRouter } from 'next/router'
 
 const Hero = () => {
+  const route = useRouter()
   return (
     <div
       data-testid="Hero"
@@ -16,7 +18,11 @@ const Hero = () => {
             Experience natural, lifelike audio and exceptional build quality
             made for the passionate music enthusiast.
           </p>
-          <Button label="See Product" />
+          <Button
+            label="See Product"
+            title="hero"
+            cb={() => route.push('/products/item/xx99-mark-two-headphones')}
+          />
         </div>
       </div>
     </div>

@@ -14,7 +14,7 @@ const Product = ({ initialData }: { initialData: Products }) => {
   const route = useRouter()
   const { product } = route.query
   const { data, isLoading, isError } = useGetProduct(product, initialData)
-  const [quantity, setQuantity] = useState(0)
+  const [quantity, setQuantity] = useState(1)
 
   return (
     <PageWrap title={data ? data!.name : 'Loading...'}>
@@ -31,7 +31,7 @@ const Product = ({ initialData }: { initialData: Products }) => {
           <>
             <ProductCard
               data={data}
-              quantity={Math.max(0, quantity)}
+              quantity={Math.max(1, quantity)}
               setQuantity={setQuantity}
             />
             <div className="flex flex-col lg:flex-row contain-padding mt-28 space-y-20 lg:space-y-0">

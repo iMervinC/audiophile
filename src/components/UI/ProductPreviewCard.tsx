@@ -82,7 +82,7 @@ export const ProductCard = ({
           <h1 className="text-4xl lg:text-[40px]">{data.name}</h1>
         </div>
         <p>{data.description}</p>
-        <span className="font-bold">{'$ ' + data.price}</span>
+        <span className="font-bold">{'$ ' + data.price * quantity}</span>
         <div className="flex space-x-5">
           <Counter count={quantity} setCount={setQuantity} />
           <Button label="Add To Cart" title="add-to-cart" />
