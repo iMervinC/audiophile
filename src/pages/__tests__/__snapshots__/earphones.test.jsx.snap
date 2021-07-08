@@ -66,6 +66,7 @@ exports[`Earphones <Earphones/> Snapshot 1`] = `
           <p />
           <button
             class="undefined bg-main text-white hover:bg-main-second w-40 h-12 transition-colors sub-title"
+            title="Buttonsee-product"
             type="submit"
           >
             See Product
@@ -116,6 +117,7 @@ exports[`Earphones <Earphones/> Snapshot 1`] = `
           <p />
           <button
             class="undefined bg-main text-white hover:bg-main-second w-40 h-12 transition-colors sub-title"
+            title="Buttonsee-product"
             type="submit"
           >
             See Product

@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import { GetStaticPaths, GetStaticProps } from 'next'
-import router, { useRouter } from 'next/router'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import axios from 'axios'
-import { ProductCard } from '@/components/UI'
-import { Categories, About } from '@/components/Sections'
+import { Button, ProductCard } from '@/components/UI'
+import { Categories, About, Gallery } from '@/components/Sections'
 import { PageWrap } from '@/components/Wrapper'
 import { useGetProduct } from '@/utils/hooks'
 import { Products } from '@/utils/types'
+import { route } from 'next/dist/next-server/server/router'
 
 const Product = ({ initialData }: { initialData: Products }) => {
   const route = useRouter()
@@ -55,50 +56,45 @@ const Product = ({ initialData }: { initialData: Products }) => {
                 </ul>
               </div>
             </div>
-            <div className="grid grid-cols-[30vw 70vw] grid-rows-2 max-h-[592px] gap-[30px]">
-              <div className="col-start-1">
-                <Image
-                  src={data.gallery.first.desktop}
-                  alt="first"
-                  height="280"
-                  width="445"
-                  objectFit="fill"
-                  blurDataURL={data.gallery.first.mobile}
-                  placeholder="blur"
-                  className="rounded-xl"
-                />
-              </div>
-              <div className="col-start-1 row-start-2">
-                <Image
-                  src={data.gallery.second.desktop}
-                  alt="second"
-                  height="280"
-                  width="445"
-                  objectFit="cover"
-                  blurDataURL={data.gallery.second.mobile}
-                  placeholder="blur"
-                  className="rounded-xl"
-                />
-              </div>
-              <div className="col-start-2 row-start-1 row-end-2">
-                <Image
-                  src={data.gallery.third.desktop}
-                  alt="third"
-                  height="592"
-                  width="635"
-                  objectFit="cover"
-                  blurDataURL={data.gallery.third.mobile}
-                  placeholder="blur"
-                  className="rounded-xl"
-                />
-              </div>
-            </div>
+            <Gallery gallery={data.gallery} />
+            <Upsell upsells={data.others} />
             <Categories />
             <About />
           </>
         )}
       </div>
     </PageWrap>
+  )
+}
+
+const Upsell = ({ upsells }: { upsells: Products['others'] }) => {
+  const route = useRouter()
+
+  return (
+    <div className="contain-padding mt-16 text-center">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl md:text-left">
+        You may also like
+      </h2>
+      <ul className="flex flex-col md:flex-row md:justify-between mt-10 space-y-10 md:space-y-0">
+        {upsells.map((item) => (
+          <li key={item.slug} className="space-y-5">
+            <Image
+              src={item.image.desktop}
+              alt={item.slug}
+              width="330"
+              height="300"
+              objectFit="fill"
+            />
+            <h4 className="text-2xl sm:text-3xl">{item.name}</h4>
+            <Button
+              label="See Product"
+              title={item.slug}
+              cb={() => route.push(`/products/${item.slug}`)}
+            />
+          </li>
+        ))}
+      </ul>
+    </div>
   )
 }
 

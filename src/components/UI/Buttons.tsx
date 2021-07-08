@@ -6,11 +6,14 @@ export const Button = ({
   label,
   variant = 'main',
   cb,
+  title,
 }: {
   type?: 'button' | 'submit' | 'reset'
   className?: string
   label: string
   variant?: 'main' | 'bnw' | 'wnb'
+  title?: string
+
   cb?: () => void
 }) => {
   return (
@@ -24,6 +27,7 @@ export const Button = ({
           : 'bg-white hover:text-white hover:bg-black border-2 border-black'
       } w-40 h-12 transition-colors sub-title`}
       type={type}
+      title={`Button${title}`}
     >
       {label}
     </button>

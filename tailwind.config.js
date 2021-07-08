@@ -58,8 +58,8 @@ module.exports = {
         'circle-tablet': 'center -56%',
       },
       gridTemplateColumns: {
-        gallery: '445px  635px',
-        'gallery-tablet': '277px  395px',
+        gallery: '39% 58%',
+        'gallery-tablet': '277px  407px',
       },
       gridTemplateRows: {
         gallery: '280px 280px',

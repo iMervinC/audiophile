@@ -27,14 +27,12 @@ describe('<ProductPreviewCard/>', () => {
   })
 
   test('Displayed Content', () => {
-    expect(screen.getByText(new RegExp(data.description))).toBeInTheDocument
-    expect(screen.getByText(new RegExp(data.name))).toBeInTheDocument
-    expect(screen.getByRole('button', { name: 'See Product' }))
-      .toBeInTheDocument
+    expect(screen.getByText(new RegExp(data.description))).toBeInTheDocument()
+    expect(screen.getByText(new RegExp(data.name))).toBeInTheDocument()
   })
 
   test('Button Clicked', () => {
-    const btn = screen.getByRole('button', { name: 'See Product' })
+    const btn = screen.getByTitle('Buttonsee-product')
     userEvent.click(btn)
     expect(expectedRouterPush).toHaveBeenCalledTimes(1)
     expect(expectedRouterPush).toHaveBeenCalledWith(`/products/${data.slug}`)

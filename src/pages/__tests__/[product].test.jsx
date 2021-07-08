@@ -55,6 +55,35 @@ const data = {
       desktop: '/home/desktop/image-earphones-yx1.jpg',
     },
   },
+  others: [
+    {
+      slug: 'xx99-mark-one-headphones',
+      name: 'XX99 Mark I',
+      image: {
+        mobile: '/home/desktop/image-earphones-yx1.jpg',
+        tablet: '/home/desktop/image-earphones-yx1.jpg',
+        desktop: '/home/desktop/image-earphones-yx1.jpg',
+      },
+    },
+    {
+      slug: 'xx59-headphones',
+      name: 'XX59',
+      image: {
+        mobile: '/home/desktop/image-earphones-yx1.jpg',
+        tablet: '/home/desktop/image-earphones-yx1.jpg',
+        desktop: '/home/desktop/image-earphones-yx1.jpg',
+      },
+    },
+    {
+      slug: 'zx9-speaker',
+      name: 'ZX9 Speaker',
+      image: {
+        mobile: '/home/desktop/image-earphones-yx1.jpg',
+        tablet: '/home/desktop/image-earphones-yx1.jpg',
+        desktop: '/home/desktop/image-earphones-yx1.jpg',
+      },
+    },
+  ],
 }
 
 jest.mock('next/router')
@@ -64,11 +93,15 @@ jest.mock('@/utils/hooks', () => ({
 
 describe('Product Page', () => {
   let expectedRouterBack
+  let expectedRouterPush
 
   beforeEach(() => {
     expectedRouterBack = jest.fn()
+    expectedRouterPush = jest.fn()
+
     useRouter.mockImplementation(() => ({
       back: expectedRouterBack,
+      push: expectedRouterPush,
       query: 'yx1-earphones',
     }))
     useGetProduct.mockImplementation(() => ({ data }))
@@ -118,7 +151,20 @@ describe('Product Page', () => {
     })
   })
 
-  it('Check Product Upsells', () => {})
+  it('Check Product Upsells', () => {
+    expect(screen.getByText(/you may also like/i)).toBeInTheDocument()
+
+    data.others.forEach((item) => {
+      expect(screen.getByText(item.name)).toBeInTheDocument()
+
+      let btn = screen.getByTitle(`Button${item.slug}`)
+      expect(btn).toBeInTheDocument()
+      userEvent.click(btn)
+
+      // expect(expectedRouterPush).toBeCalledTimes(1)
+      expect(expectedRouterPush).toBeCalledWith(`/products/${item.slug}`)
+    })
+  })
 
   test('Check Categories Component', () => {
     expect(screen.getByTestId('Categories')).toBeInTheDocument()

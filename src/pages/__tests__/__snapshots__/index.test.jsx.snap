@@ -30,6 +30,7 @@ exports[`<Home/> match Snapshot 1`] = `
           </p>
           <button
             class="undefined bg-main text-white hover:bg-main-second w-40 h-12 transition-colors sub-title"
+            title="Buttonundefined"
             type="submit"
           >
             See Product
@@ -255,6 +256,7 @@ exports[`<Home/> match Snapshot 1`] = `
           </p>
           <button
             class="undefined text-white bg-black  hover:bg-[#4c4c4c] w-40 h-12 transition-colors sub-title"
+            title="Buttonundefined"
             type="submit"
           >
             See Product
@@ -271,6 +273,7 @@ exports[`<Home/> match Snapshot 1`] = `
         </h4>
         <button
           class="undefined bg-white hover:text-white hover:bg-black border-2 border-black w-40 h-12 transition-colors sub-title"
+          title="Buttonundefined"
           type="submit"
         >
           See Product
@@ -292,6 +295,7 @@ exports[`<Home/> match Snapshot 1`] = `
           </h4>
           <button
             class="undefined bg-white hover:text-white hover:bg-black border-2 border-black w-40 h-12 transition-colors sub-title"
+            title="Buttonundefined"
             type="submit"
           >
             See Product

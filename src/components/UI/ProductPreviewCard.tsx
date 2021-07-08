@@ -42,6 +42,7 @@ const ProductPreviewCard = (props: ProdPrev) => {
         <p>{description}</p>
         <Button
           label="See Product"
+          title="see-product"
           cb={() => route.push(`/products/${slug}`)}
         />
       </div>
@@ -84,7 +85,7 @@ export const ProductCard = ({
         <span className="font-bold">{'$ ' + data.price}</span>
         <div className="flex space-x-5">
           <Counter count={quantity} setCount={setQuantity} />
-          <Button label="Add To Cart" />
+          <Button label="Add To Cart" title="add-to-cart" />
         </div>
       </div>
     </div>
