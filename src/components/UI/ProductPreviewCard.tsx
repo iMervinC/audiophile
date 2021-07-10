@@ -2,6 +2,7 @@ import React, { Dispatch, SetStateAction } from 'react'
 import Image from 'next/image'
 import { Button, Counter } from '@/components/UI'
 import { Products } from '@/utils/types'
+import { useCartDispatch } from '@/utils/hooks'
 import { useRouter } from 'next/router'
 
 interface ProdPrev extends Products {
@@ -26,7 +27,7 @@ const ProductPreviewCard = (props: ProdPrev) => {
         }`}
       >
         <Image
-          src={image.desktop}
+          src={image!.desktop}
           height={500}
           width={500}
           alt={slug}
@@ -59,6 +60,8 @@ export const ProductCard = ({
   quantity: number
   setQuantity: Dispatch<SetStateAction<number>>
 }) => {
+  const { addToCart } = useCartDispatch()
+  const { name, price, slug, image, description } = data
   return (
     <div
       data-testid="Product Card"
@@ -68,10 +71,10 @@ export const ProductCard = ({
         className={`flex items-center justify-center w-full bg-grey text-center rounded-lg`}
       >
         <Image
-          src={data.image.desktop}
+          src={image!.desktop}
           height={500}
           width={500}
-          alt={data.slug}
+          alt={slug}
           objectFit="fill"
           className="w-44"
         />
@@ -79,13 +82,17 @@ export const ProductCard = ({
       <div className="flex flex-col justify-center space-y-9 w-full items-center sm:items-start">
         <div>
           {data.new && <p className="overline text-main ">New Product</p>}
-          <h1 className="text-4xl lg:text-[40px]">{data.name}</h1>
+          <h1 className="text-4xl lg:text-[40px]">{name}</h1>
         </div>
-        <p>{data.description}</p>
-        <span className="font-bold">{'$ ' + data.price * quantity}</span>
+        <p>{description}</p>
+        <span className="font-bold">{'$ ' + price * quantity}</span>
         <div className="flex space-x-5">
           <Counter count={quantity} setCount={setQuantity} />
-          <Button label="Add To Cart" title="add-to-cart" />
+          <Button
+            label="Add To Cart"
+            title="add-to-cart"
+            cb={() => addToCart({ name, slug, quantity, price })}
+          />
         </div>
       </div>
     </div>

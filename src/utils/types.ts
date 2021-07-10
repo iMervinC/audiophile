@@ -2,19 +2,37 @@ import type { Db, MongoClient } from 'mongodb'
 import type { NextApiRequest, NextApiResponse } from 'next/types'
 import { Dispatch, SetStateAction } from 'react'
 
+export interface CartProduct {
+  _id?: string
+  id?: string
+  slug?: string
+  name?: string
+  price?: number
+  quantity?: number
+}
+
+export interface InitialCartState {
+  cart: CartProduct[]
+}
+
+export type CartAction =
+  | { type: 'ADD'; payload: CartProduct }
+  | { type: 'DELETE'; id: number }
+  | { type: 'ADD_QUANTITY'; id: number }
+  | { type: 'SUBTRACT_QUANTITY'; id: number }
 export interface Products {
-  id: number
+  id?: number
   slug: string
   name: string
-  image: Image
-  category: 'earphones' | 'headphones' | 'speakers'
-  new: boolean
+  image?: Image
+  category?: 'earphones' | 'headphones' | 'speakers'
+  new?: boolean
   price: number
-  description: string
-  features: string
-  includes: Include[]
-  gallery: Gallery
-  others: Other[]
+  description?: string
+  features?: string
+  includes?: Include[]
+  gallery?: Gallery
+  others?: Other[]
 }
 
 export interface Gallery {

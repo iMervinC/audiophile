@@ -7,7 +7,7 @@ import { Button, ProductCard } from '@/components/UI'
 import { Categories, About, Gallery } from '@/components/Sections'
 import { PageWrap } from '@/components/Wrapper'
 import { useGetProduct } from '@/utils/hooks'
-import { Products } from '@/utils/types'
+import { Products, Other } from '@/utils/types'
 import { route } from 'next/dist/next-server/server/router'
 
 const Product = ({ initialData }: { initialData: Products }) => {
@@ -45,7 +45,7 @@ const Product = ({ initialData }: { initialData: Products }) => {
                   In the box
                 </h2>
                 <ul className="w-full space-y-2">
-                  {data.includes.map((item) => (
+                  {data.includes!.map((item) => (
                     <li key={item.item} className="text-grey-shop">
                       <span className="text-main font-bold mr-10">
                         {item.quantity}x
@@ -57,7 +57,7 @@ const Product = ({ initialData }: { initialData: Products }) => {
               </div>
             </div>
             <Gallery gallery={data.gallery} />
-            <Upsell upsells={data.others} />
+            <Upsell upsells={data.others!} />
             <Categories />
             <About />
           </>
@@ -67,7 +67,7 @@ const Product = ({ initialData }: { initialData: Products }) => {
   )
 }
 
-const Upsell = ({ upsells }: { upsells: Products['others'] }) => {
+const Upsell = ({ upsells }: { upsells: Other[] }) => {
   const route = useRouter()
 
   return (
