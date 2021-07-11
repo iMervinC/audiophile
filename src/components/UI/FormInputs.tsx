@@ -51,7 +51,7 @@ export const Counter = ({ count, setCount }: CounterT) => {
       >
         -
       </span>
-      <span>{count}</span>
+      <span title="quantity">{count}</span>
       <span
         role="button"
         className="hover:text-main cursor-pointer"

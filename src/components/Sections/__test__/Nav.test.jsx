@@ -1,8 +1,8 @@
 import { render, fireEvent, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { useRouter } from 'next/router'
-import matchMediaPolyfill from 'mq-polyfill'
 import { Nav } from '../Nav'
+import { CartProvider } from '@/utils/hooks'
 
 jest.mock('next/router')
 
@@ -20,19 +20,11 @@ describe('Navigation', () => {
       push: expectedRouterPush,
     }))
 
-    render(<Nav />)
-  })
-
-  beforeAll(() => {
-    matchMediaPolyfill(window)
-    window.resizeTo = function resizeTo(width, height) {
-      Object.assign(this, {
-        innerWidth: width,
-        innerHeight: height,
-        outerWidth: width,
-        outerHeight: height,
-      }).dispatchEvent(new this.Event('resize'))
-    }
+    render(
+      <CartProvider>
+        <Nav />
+      </CartProvider>
+    )
   })
 
   it('Background smaller and black on Scroll', () => {
