@@ -7,12 +7,14 @@ export const Button = ({
   variant = 'main',
   cb,
   title,
+  width = 'w-40',
 }: {
   type?: 'button' | 'submit' | 'reset'
   className?: string
   label: string
   variant?: 'main' | 'bnw' | 'wnb'
   title?: string
+  width?: string
 
   cb?: () => void
 }) => {
@@ -25,7 +27,7 @@ export const Button = ({
           : variant === 'bnw'
           ? 'text-white bg-black  hover:bg-[#4c4c4c]'
           : 'bg-white hover:text-white hover:bg-black border-2 border-black'
-      } w-40 h-12 transition-colors sub-title`}
+      } ${width}  h-12 transition-colors sub-title`}
       type={type}
       title={`Button${title}`}
     >

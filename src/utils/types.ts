@@ -9,6 +9,7 @@ export interface CartProduct {
   name?: string
   price?: number
   quantity?: number
+  image?: Image
 }
 
 export interface InitialCartState {
@@ -18,8 +19,8 @@ export interface InitialCartState {
 export type CartAction =
   | { type: 'ADD'; payload: CartProduct }
   | { type: 'DELETE'; id: number }
-  | { type: 'ADD_QUANTITY'; id: number }
-  | { type: 'SUBTRACT_QUANTITY'; id: number }
+  | { type: 'CLEAR_CART' }
+  | { type: 'UPDATE_ITEM'; payload: CartProduct }
 export interface Products {
   id?: number
   slug: string

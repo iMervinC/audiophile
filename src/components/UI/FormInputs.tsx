@@ -62,3 +62,31 @@ export const Counter = ({ count, setCount }: CounterT) => {
     </div>
   )
 }
+
+interface CCT extends CounterT {
+  className?: string
+}
+
+export const CartCounter = ({ count, setCount, className }: CCT) => {
+  return (
+    <div
+      className={`w-[96px] h-[32px] bg-grey font-bold flex items-center justify-around select-none ${className}`}
+    >
+      <span
+        role="button"
+        className="hover:text-main cursor-pointer"
+        onClick={() => setCount(count - 1)}
+      >
+        -
+      </span>
+      <span title="quantity">{count}</span>
+      <span
+        role="button"
+        className="hover:text-main cursor-pointer"
+        onClick={() => setCount(count + 1)}
+      >
+        +
+      </span>
+    </div>
+  )
+}

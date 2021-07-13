@@ -91,7 +91,7 @@ export const ProductCard = ({
           <Button
             label="Add To Cart"
             title="add-to-cart"
-            cb={() => addToCart({ name, slug, quantity, price })}
+            cb={() => addToCart({ name, slug, quantity, price, image })}
           />
         </div>
       </div>

@@ -111,6 +111,7 @@ describe('Product Page', () => {
       price: data.price,
       quantity: 1,
       slug: data.slug,
+      image: data.image,
     })
   })
 
@@ -134,6 +135,7 @@ describe('Product Page', () => {
       price: data.price,
       quantity: 4,
       slug: data.slug,
+      image: data.image,
     })
   })
 })

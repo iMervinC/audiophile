@@ -12,6 +12,7 @@ module.exports = {
     extend: {
       height: {
         mobilenav: 'calc(100vh - 106px)',
+        cart: 'calc(100vh - 123px)',
       },
       colors: {
         main: {
@@ -26,6 +27,7 @@ module.exports = {
           shop: '#6E6E6E',
           border: '#cfcfcf',
         },
+        translucent: 'rgba(0, 0, 0, 0.7)',
       },
       backgroundImage: (theme) => ({
         hero: "url('/home/desktop/image-hero.jpg')",

@@ -10,7 +10,8 @@ import { CartProduct, InitialCartState, CartAction } from '../types'
 interface DispatchActions {
   addToCart: (item: CartProduct) => void
   removeFromCart: (index: number) => void
-  quantityChange: (type: 'Add' | 'Minus', index: number) => void
+  clearCart: () => void
+  updateItem: (cartItem: CartProduct) => void
 }
 
 const CartStore = createContext<InitialCartState>({} as InitialCartState)
@@ -33,22 +34,19 @@ const reducer: Reducer<InitialCartState, CartAction> = (state, action) => {
         cart: [...filltered],
       }
     // === === === === === === === === ===
-    case 'ADD_QUANTITY':
-      state.cart[action.id].quantity! += 1
-
+    case 'UPDATE_ITEM':
+      const updateIdex = state.cart.findIndex(
+        (item) => item.slug === action.payload.slug
+      )
+      const updateCart = state.cart
+      updateCart[updateIdex] = action.payload
       return {
         ...state,
+        cart: updateCart,
       }
     // === === === === === === === === ===
-    case 'SUBTRACT_QUANTITY':
-      state.cart[action.id].quantity = Math.max(
-        0,
-        (state.cart[action.id].quantity! -= 1)
-      )
-
-      return {
-        ...state,
-      }
+    case 'CLEAR_CART':
+      return { cart: [] }
     // === === === === === === === === ===
 
     default:
@@ -67,17 +65,22 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     dispatch({ type: 'DELETE', id: index })
   }
 
-  const quantityChange = (type: 'Add' | 'Minus', index: number) => {
-    if (type === 'Add') {
-      dispatch({ type: 'ADD_QUANTITY', id: index })
-    } else if (type === 'Minus') {
-      dispatch({ type: 'SUBTRACT_QUANTITY', id: index })
-    }
+  const clearCart = () => {
+    dispatch({ type: 'CLEAR_CART' })
+  }
+
+  const updateItem = (cartItem: CartProduct) => {
+    dispatch({ type: 'UPDATE_ITEM', payload: cartItem })
   }
 
   return (
     <CartDispatch.Provider
-      value={{ addToCart, removeFromCart, quantityChange }}
+      value={{
+        addToCart,
+        removeFromCart,
+        clearCart,
+        updateItem,
+      }}
     >
       <CartStore.Provider value={state}>{children}</CartStore.Provider>
     </CartDispatch.Provider>

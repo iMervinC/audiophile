@@ -29,7 +29,7 @@ exports[`<Home/> match Snapshot 1`] = `
             Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.
           </p>
           <button
-            class="undefined bg-main text-white hover:bg-main-second w-40 h-12 transition-colors sub-title"
+            class="undefined bg-main text-white hover:bg-main-second w-40  h-12 transition-colors sub-title"
             title="Buttonhero"
             type="submit"
           >
@@ -255,7 +255,7 @@ exports[`<Home/> match Snapshot 1`] = `
             Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.
           </p>
           <button
-            class="undefined text-white bg-black  hover:bg-[#4c4c4c] w-40 h-12 transition-colors sub-title"
+            class="undefined text-white bg-black  hover:bg-[#4c4c4c] w-40  h-12 transition-colors sub-title"
             title="Buttonzx9"
             type="submit"
           >
@@ -272,7 +272,7 @@ exports[`<Home/> match Snapshot 1`] = `
           ZX7 SPEAKER
         </h4>
         <button
-          class="undefined bg-white hover:text-white hover:bg-black border-2 border-black w-40 h-12 transition-colors sub-title"
+          class="undefined bg-white hover:text-white hover:bg-black border-2 border-black w-40  h-12 transition-colors sub-title"
           title="Buttonzx7"
           type="submit"
         >
@@ -294,7 +294,7 @@ exports[`<Home/> match Snapshot 1`] = `
             YX1 EARPHONES
           </h4>
           <button
-            class="undefined bg-white hover:text-white hover:bg-black border-2 border-black w-40 h-12 transition-colors sub-title"
+            class="undefined bg-white hover:text-white hover:bg-black border-2 border-black w-40  h-12 transition-colors sub-title"
             title="Buttonyx1"
             type="submit"
           >
