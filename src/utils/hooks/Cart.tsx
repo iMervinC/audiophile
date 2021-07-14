@@ -1,9 +1,13 @@
 import {
   useReducer,
-  createContext,
   useContext,
+  useCallback,
+  createContext,
   ReactNode,
   Reducer,
+  useMemo,
+  useEffect,
+  useState,
 } from 'react'
 import { CartProduct, InitialCartState, CartAction } from '../types'
 
@@ -23,8 +27,25 @@ const initialState: InitialCartState = {
 
 const reducer: Reducer<InitialCartState, CartAction> = (state, action) => {
   switch (action.type) {
+    case 'PRIME_CART':
+      return action.payload
+    // === === === === === === === === ===
     case 'ADD':
-      return { cart: [...state.cart, action.payload] }
+      const exist = state.cart.findIndex(
+        (item) => item.slug === action.payload.slug
+      )
+
+      const cart = state.cart
+
+      if (exist < 0) {
+        return { cart: [...cart, action.payload] }
+      } else {
+        cart[exist] = {
+          ...action.payload,
+          quantity: cart[exist].quantity! + action.payload.quantity!,
+        }
+        return { ...state, cart }
+      }
     // === === === === === === === === ===
     case 'DELETE':
       const filltered = state.cart.filter((_, index) => index !== action.id)
@@ -57,21 +78,36 @@ const reducer: Reducer<InitialCartState, CartAction> = (state, action) => {
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
 
-  const addToCart = (item: CartProduct) => {
+  useEffect(() => {
+    dispatch({
+      type: 'PRIME_CART',
+      payload: JSON.parse(localStorage.getItem('cart')!),
+    })
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(state))
+  }, [state])
+
+  //ACTIONS
+
+  const addToCart = useCallback((item: CartProduct) => {
     dispatch({ type: 'ADD', payload: item })
-  }
+  }, [])
 
-  const removeFromCart = (index: number) => {
+  const removeFromCart = useCallback((index: number) => {
     dispatch({ type: 'DELETE', id: index })
-  }
+  }, [])
 
-  const clearCart = () => {
+  const clearCart = useCallback(() => {
     dispatch({ type: 'CLEAR_CART' })
-  }
+  }, [])
 
-  const updateItem = (cartItem: CartProduct) => {
+  const updateItem = useCallback((cartItem: CartProduct) => {
     dispatch({ type: 'UPDATE_ITEM', payload: cartItem })
-  }
+  }, [])
+
+  const memoState = useMemo(() => state, [state])
 
   return (
     <CartDispatch.Provider
@@ -82,7 +118,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         updateItem,
       }}
     >
-      <CartStore.Provider value={state}>{children}</CartStore.Provider>
+      <CartStore.Provider value={memoState}>{children}</CartStore.Provider>
     </CartDispatch.Provider>
   )
 }

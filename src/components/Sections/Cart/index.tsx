@@ -48,7 +48,7 @@ const Cart = ({
                 <p className="inline-block float-right font-bold text-lg">
                   ${' '}
                   {items
-                    .map((item) => item.price)
+                    .map((item) => item.price! * item.quantity!)
                     .reduce((acc, cur) => acc! + cur!)}
                 </p>
               </div>

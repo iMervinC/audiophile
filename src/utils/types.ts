@@ -17,6 +17,7 @@ export interface InitialCartState {
 }
 
 export type CartAction =
+  | { type: 'PRIME_CART'; payload: InitialCartState }
   | { type: 'ADD'; payload: CartProduct }
   | { type: 'DELETE'; id: number }
   | { type: 'CLEAR_CART' }
