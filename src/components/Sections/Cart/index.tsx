@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Img from 'next/image'
 import { CartCounter, Button } from '@/components/UI'
 import { CartProduct } from '@/utils/types'
@@ -18,9 +19,8 @@ const Cart = ({
   return (
     <div
       onClick={closeNav}
-      className={`absolute w-screen h-screen left-0 top-[106px] bg-translucent transition-all ease-out duration-500 ${
-        scroll ? 'lg:top-[66px]' : 'lg:top-[106px]'
-      }`}
+      className={`cart ${scroll ? 'lg:top-[66px]' : 'lg:top-[106px]'}`}
+      data-testid="cart-popup"
     >
       <div className="container">
         <div
@@ -67,10 +67,14 @@ const Cart = ({
 
 const CartItems = ({ product }: { product: CartProduct }) => {
   const [count, setCount] = useState(product.quantity!)
-  const { updateItem } = useCartDispatch()
+  const { updateItem, removeFromCart } = useCartDispatch()
 
   useEffect(() => {
-    updateItem({ ...product, quantity: count })
+    if (count > 0) {
+      updateItem({ ...product, quantity: count })
+    } else {
+      removeFromCart(product.slug!)
+    }
   }, [count])
 
   return (
@@ -88,7 +92,12 @@ const CartItems = ({ product }: { product: CartProduct }) => {
           $ {product.price! * product.quantity!}
         </span>
       </div>
-      <CartCounter count={count} setCount={setCount} className="ml-auto" />
+      <CartCounter
+        count={count}
+        setCount={setCount}
+        className="ml-auto"
+        title={product.slug}
+      />
     </li>
   )
 }

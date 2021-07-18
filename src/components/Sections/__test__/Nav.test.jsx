@@ -2,9 +2,46 @@ import { render, fireEvent, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { useRouter } from 'next/router'
 import { Nav } from '../Nav'
-import { CartProvider } from '@/utils/hooks'
+import { CartStore, CartDispatch } from '@/utils/hooks'
 
 jest.mock('next/router')
+
+const storeProps = {
+  value: {
+    cart: [
+      {
+        image: {
+          desktop: '/assets/product-zx9-speaker/desktop/image-product.jpg',
+          mobile: '/assets/product-zx9-speaker/mobile/image-product.jpg',
+          tablet: '/assets/product-zx9-speaker/tablet/image-product.jpg',
+        },
+
+        name: 'ZX9 Speaker',
+        price: 4500,
+        quantity: 1,
+        slug: 'zx9-speaker',
+      },
+    ],
+  },
+}
+
+const dispatchProps = {
+  value: {
+    addToCart: jest.fn(),
+    removeFromCart: jest.fn(),
+    clearCart: jest.fn(),
+    updateItem: jest.fn(),
+  },
+}
+
+const cartRender = (ui, { storeProps, dispatchProps, ...renderOptions }) => {
+  return render(
+    <CartDispatch.Provider {...dispatchProps}>
+      <CartStore.Provider {...storeProps}>{ui}</CartStore.Provider>
+    </CartDispatch.Provider>,
+    renderOptions
+  )
+}
 
 describe('Navigation', () => {
   let getByTestId = screen.getByTestId
@@ -19,12 +56,10 @@ describe('Navigation', () => {
       asPath: '',
       push: expectedRouterPush,
     }))
-
-    render(
-      <CartProvider>
-        <Nav />
-      </CartProvider>
-    )
+    const storeProps = {
+      value: { cart: [] },
+    }
+    cartRender(<Nav />, { storeProps, dispatchProps })
   })
 
   it('Background smaller and black on Scroll', () => {
@@ -95,5 +130,85 @@ describe('Navigation', () => {
     userEvent.click(burger)
 
     expect(screen.queryByTestId('mobile-nav')).not.toBeInTheDocument()
+  })
+
+  it('Toggle Cart', () => {
+    expect(screen.queryByTestId('cart-popup')).not.toBeInTheDocument()
+    userEvent.click(screen.getByRole('button', { name: 'cart' }))
+    expect(screen.queryByTestId('cart-popup')).toBeInTheDocument()
+  })
+
+  it('Empty Cart', () => {
+    userEvent.click(screen.getByRole('button', { name: 'cart' }))
+
+    expect(screen.queryByTestId('cart-popup')).toHaveTextContent(
+      /No Items in cart/i
+    )
+  })
+})
+
+describe('Cart', () => {
+  let expectedAddToCart
+  let expectedRemoveFromCart
+  let expectedClearCart
+  let expectedUpdateItem
+
+  beforeEach(() => {
+    expectedAddToCart = jest.fn()
+    expectedRemoveFromCart = jest.fn()
+    expectedClearCart = jest.fn()
+    expectedUpdateItem = jest.fn()
+
+    cartRender(<Nav />, {
+      storeProps,
+      dispatchProps: {
+        value: {
+          addToCart: expectedAddToCart,
+          removeFromCart: expectedRemoveFromCart,
+          clearCart: expectedClearCart,
+          updateItem: expectedUpdateItem,
+        },
+      },
+    })
+
+    userEvent.click(screen.getByRole('button', { name: 'cart' }))
+  })
+
+  it('Items in Cart', () => {
+    expect(screen.getByTitle('cart-counter')).toHaveTextContent('1')
+
+    expect(screen.getByRole('heading', { level: 6 })).toHaveTextContent(
+      'Cart (1)'
+    )
+  })
+
+  it('Clear Cart', () => {
+    userEvent.click(screen.getByText(/remove all/i))
+
+    expect(expectedClearCart).toBeCalledTimes(1)
+  })
+
+  it('Change Quantity to Item', () => {
+    const cartItem = storeProps.value.cart[0]
+    const minusBtn = screen.getByTitle(`${cartItem.slug} -`)
+    const plusBtn = screen.getByTitle(`${cartItem.slug} +`)
+    const count = screen.getByTitle(`${cartItem.slug} quantity`)
+
+    expect(expectedUpdateItem).toBeCalledTimes(1)
+    expect(count).toHaveTextContent('1')
+    userEvent.click(plusBtn)
+    userEvent.click(plusBtn)
+    expect(count).toHaveTextContent('3')
+    expect(expectedUpdateItem).toBeCalledTimes(3)
+    expect(expectedUpdateItem).toBeCalledWith({ ...cartItem, quantity: 3 })
+    userEvent.click(minusBtn)
+    expect(count).toHaveTextContent('2')
+    expect(expectedUpdateItem).toBeCalledTimes(4)
+    expect(expectedUpdateItem).toBeCalledWith({ ...cartItem, quantity: 2 })
+    //Remove Item
+    userEvent.click(minusBtn)
+    userEvent.click(minusBtn)
+    expect(expectedRemoveFromCart).toBeCalledTimes(1)
+    expect(expectedRemoveFromCart).toBeCalledWith(cartItem.slug)
   })
 })

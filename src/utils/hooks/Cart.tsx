@@ -7,19 +7,20 @@ import {
   Reducer,
   useMemo,
   useEffect,
-  useState,
 } from 'react'
 import { CartProduct, InitialCartState, CartAction } from '../types'
 
 interface DispatchActions {
   addToCart: (item: CartProduct) => void
-  removeFromCart: (index: number) => void
+  removeFromCart: (slug: string) => void
   clearCart: () => void
   updateItem: (cartItem: CartProduct) => void
 }
 
-const CartStore = createContext<InitialCartState>({} as InitialCartState)
-const CartDispatch = createContext<DispatchActions>({} as DispatchActions)
+export const CartStore = createContext<InitialCartState>({} as InitialCartState)
+export const CartDispatch = createContext<DispatchActions>(
+  {} as DispatchActions
+)
 
 const initialState: InitialCartState = {
   cart: [],
@@ -48,7 +49,7 @@ const reducer: Reducer<InitialCartState, CartAction> = (state, action) => {
       }
     // === === === === === === === === ===
     case 'DELETE':
-      const filltered = state.cart.filter((_, index) => index !== action.id)
+      const filltered = state.cart.filter((item) => item.slug !== action.slug)
 
       return {
         ...state,
@@ -95,8 +96,8 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     dispatch({ type: 'ADD', payload: item })
   }, [])
 
-  const removeFromCart = useCallback((index: number) => {
-    dispatch({ type: 'DELETE', id: index })
+  const removeFromCart = useCallback((slug: string) => {
+    dispatch({ type: 'DELETE', slug })
   }, [])
 
   const clearCart = useCallback(() => {

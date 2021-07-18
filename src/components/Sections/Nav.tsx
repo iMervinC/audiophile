@@ -10,10 +10,10 @@ import { Cart } from '@/components/Sections'
 const Nav = () => {
   const route = useRouter()
   const navs: Navigation[] = ['home', 'headphones', 'speakers', 'earphones']
+  const { scrollY } = useGetScroll()
   const [toggle, settoggle] = useState(false)
   const [cartToggle, setCartToggle] = useState(false)
   const [nav, setNav] = useState('home')
-  const { scrollY } = useGetScroll()
   const [scroll, setScroll] = useState(false)
   const { cart } = useCartStore()
 
@@ -91,6 +91,8 @@ const Nav = () => {
         <div
           className="relative ml-auto sm:ml-0 cursor-pointer"
           onClick={() => setCartToggle((bol) => !bol)}
+          title="cart"
+          role="button"
         >
           <svg
             className=" text-white hover:text-main fill-current "

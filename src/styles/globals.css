@@ -80,6 +80,10 @@
     @apply px-9 lg:px-0;
   }
 
+  .cart {
+    @apply absolute w-screen h-screen left-0 top-[106px] bg-translucent transition-all ease-out duration-500;
+  }
+
   .title {
     font-size: 58px;
     line-height: 56px;

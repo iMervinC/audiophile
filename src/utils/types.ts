@@ -4,7 +4,7 @@ import { Dispatch, SetStateAction } from 'react'
 
 export interface CartProduct {
   _id?: string
-  id?: string
+  id?: number
   slug?: string
   name?: string
   price?: number
@@ -19,7 +19,7 @@ export interface InitialCartState {
 export type CartAction =
   | { type: 'PRIME_CART'; payload: InitialCartState }
   | { type: 'ADD'; payload: CartProduct }
-  | { type: 'DELETE'; id: number }
+  | { type: 'DELETE'; slug: string }
   | { type: 'CLEAR_CART' }
   | { type: 'UPDATE_ITEM'; payload: CartProduct }
 export interface Products {
@@ -77,6 +77,7 @@ export interface TF {
   id?: string
   placeholder: string
   label: string
+  type?: 'text' | 'email' | 'tel'
 }
 
 export interface RadioT {

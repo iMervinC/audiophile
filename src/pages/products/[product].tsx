@@ -8,7 +8,6 @@ import { Categories, About, Gallery } from '@/components/Sections'
 import { PageWrap } from '@/components/Wrapper'
 import { useGetProduct } from '@/utils/hooks'
 import { Products, Other } from '@/utils/types'
-import { route } from 'next/dist/next-server/server/router'
 
 const Product = ({ initialData }: { initialData: Products }) => {
   const route = useRouter()
@@ -22,6 +21,7 @@ const Product = ({ initialData }: { initialData: Products }) => {
         <div
           className="cursor-pointer px-9 lg:px-0 hover:text-main "
           onClick={() => route.back()}
+          role="button"
         >
           Go Back
         </div>

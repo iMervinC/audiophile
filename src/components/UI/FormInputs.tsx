@@ -1,15 +1,21 @@
 import { SetStateAction, Dispatch } from 'react'
 import { TF, RadioT, CounterT } from '@/utils/types'
 
-export const TextField = ({ name, id, placeholder, label }: TF) => {
+export const TextField = ({
+  name,
+  id,
+  placeholder,
+  label,
+  type = 'text',
+}: TF) => {
   return (
     <div>
-      <label htmlFor="name" className="block">
+      <label htmlFor={id} className="block">
         {label}
       </label>
       <input
         className="px-6 py-5 w-[309px] h-[56px] rounded-lg border-2 border-grey-border  focus:outline-none focus:ring-2 focus:ring-main focus:border-transparent"
-        type="text"
+        type={type}
         name={name}
         id={id}
         placeholder={placeholder}
@@ -65,23 +71,26 @@ export const Counter = ({ count, setCount }: CounterT) => {
 
 interface CCT extends CounterT {
   className?: string
+  title?: string
 }
 
-export const CartCounter = ({ count, setCount, className }: CCT) => {
+export const CartCounter = ({ count, setCount, className, title }: CCT) => {
   return (
     <div
       className={`w-[96px] h-[32px] bg-grey font-bold flex items-center justify-around select-none ${className}`}
     >
       <span
         role="button"
+        title={`${title} -`}
         className="hover:text-main cursor-pointer"
         onClick={() => setCount(count - 1)}
       >
         -
       </span>
-      <span title="quantity">{count}</span>
+      <span title={`${title} quantity`}>{count}</span>
       <span
         role="button"
+        title={`${title} +`}
         className="hover:text-main cursor-pointer"
         onClick={() => setCount(count + 1)}
       >

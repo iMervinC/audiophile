@@ -79,3 +79,34 @@ export const data = {
     },
   ],
 }
+
+export const cartData = [
+  {
+    name: 'XX59 Headphones',
+    slug: 'xx59-headphones',
+    quantity: 3,
+    price: 899,
+    image: {
+      mobile:
+        'https://res.cloudinary.com/mervyn/image/upload/v1624416987/assets/product-xx59-headphones/mobile/image-product.jpg',
+      tablet:
+        'https://res.cloudinary.com/mervyn/image/upload/v1624416987/assets/product-xx59-headphones/tablet/image-product.jpg',
+      desktop:
+        'https://res.cloudinary.com/mervyn/image/upload/v1624416987/assets/product-xx59-headphones/desktop/image-product.jpg',
+    },
+  },
+  {
+    name: 'YX1 Wireless Earphones',
+    slug: 'yx1-earphones',
+    quantity: 6,
+    price: 599,
+    image: {
+      mobile:
+        'https://res.cloudinary.com/mervyn/image/upload/v1624416987/assets/product-yx1-earphones/mobile/image-product.jpg',
+      tablet:
+        'https://res.cloudinary.com/mervyn/image/upload/v1624416987/assets/product-yx1-earphones/tablet/image-product.jpg',
+      desktop:
+        'https://res.cloudinary.com/mervyn/image/upload/v1624416987/assets/product-yx1-earphones/desktop/image-product.jpg',
+    },
+  },
+]
