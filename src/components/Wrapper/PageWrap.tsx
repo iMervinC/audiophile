@@ -4,9 +4,10 @@ import Head from 'next/head'
 interface Layout {
   title: string
   otherPage?: boolean
+  className?: string
 }
 
-const PageWrap: FC<Layout> = ({ title, children }) => {
+const PageWrap: FC<Layout> = ({ title, children, className }) => {
   return (
     <>
       <Head>
@@ -14,7 +15,7 @@ const PageWrap: FC<Layout> = ({ title, children }) => {
         <link rel="icon" href="/vercel.svg" />
         <meta name="description" content="Your audio" />
       </Head>
-      <main>{children}</main>
+      <main className={className}>{children}</main>
     </>
   )
 }

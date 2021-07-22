@@ -4,6 +4,7 @@ import { CartCounter, Button } from '@/components/UI'
 import { CartProduct } from '@/utils/types'
 import { useCartDispatch } from '@/utils/hooks'
 import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 
 const Cart = ({
   items,
@@ -15,7 +16,7 @@ const Cart = ({
   scroll: boolean
 }) => {
   const { clearCart } = useCartDispatch()
-
+  const route = useRouter()
   return (
     <div
       onClick={closeNav}
@@ -52,7 +53,15 @@ const Cart = ({
                     .reduce((acc, cur) => acc! + cur!)}
                 </p>
               </div>
-              <Button label="checkout" width="w-full" className="mt-5" />
+              <Button
+                label="checkout"
+                width="w-full"
+                className="mt-5"
+                cb={() => {
+                  closeNav()
+                  route.push('/checkout')
+                }}
+              />
             </>
           ) : (
             <span className="uppercase text-lg font-bold text-grey-shop text-center">

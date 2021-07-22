@@ -1,6 +1,7 @@
 import type { Db, MongoClient } from 'mongodb'
 import type { NextApiRequest, NextApiResponse } from 'next/types'
 import { Dispatch, SetStateAction } from 'react'
+import { UseFormRegister } from 'react-hook-form'
 
 export interface CartProduct {
   _id?: string
@@ -72,19 +73,42 @@ export type MyController<T = any> = (
 
 export type Navigation = 'home' | 'headphones' | 'speakers' | 'earphones'
 
+export interface CheckoutT {
+  name: string
+  email: string
+  phone: string
+  address: string
+  zip: number
+  city: string
+  country: string
+  paymentMethod: 'e-money' | 'cod'
+  'e-moneypin': string
+  'e-moneynum': string
+}
 export interface TF {
-  name?: string
+  name?:
+    | 'name'
+    | 'address'
+    | 'phone'
+    | 'zip'
+    | 'city'
+    | 'country'
+    | 'e-moneypin'
+    | 'e-moneynum'
   id?: string
   placeholder: string
   label: string
-  type?: 'text' | 'email' | 'tel'
+  type?: 'text' | 'email' | 'tel' | 'number'
+  register: UseFormRegister<CheckoutT>
 }
 
 export interface RadioT {
-  name?: string
+  name?: 'paymentMethod'
+  value: CheckoutT['paymentMethod']
   id?: string
   placeholder: string
   selected?: boolean
+  register: UseFormRegister<CheckoutT>
 }
 
 export interface CounterT {

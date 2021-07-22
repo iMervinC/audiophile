@@ -22,7 +22,5 @@ describe('Cart Store', () => {
         slug: 'zx9-speaker',
       })
     })
-
-    expect(store.result.current.cart).toBe(1)
   })
 })

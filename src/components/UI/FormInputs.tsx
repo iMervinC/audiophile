@@ -1,4 +1,3 @@
-import { SetStateAction, Dispatch } from 'react'
 import { TF, RadioT, CounterT } from '@/utils/types'
 
 export const TextField = ({
@@ -7,6 +6,7 @@ export const TextField = ({
   placeholder,
   label,
   type = 'text',
+  register,
 }: TF) => {
   return (
     <div>
@@ -14,24 +14,37 @@ export const TextField = ({
         {label}
       </label>
       <input
-        className="px-6 py-5 w-[309px] h-[56px] rounded-lg border-2 border-grey-border  focus:outline-none focus:ring-2 focus:ring-main focus:border-transparent"
+        className="px-6 py-5 h-[56px] w-full rounded-lg border-2 border-grey-border  focus:outline-none focus:ring-2 focus:ring-main focus:border-transparent"
         type={type}
-        name={name}
         id={id}
         placeholder={placeholder}
+        {...register(name!)}
       />
     </div>
   )
 }
 
-export const Radio = ({ placeholder, id, name, selected = false }: RadioT) => {
+export const Radio = ({
+  placeholder,
+  id,
+  name,
+  value,
+  selected = false,
+  register,
+}: RadioT) => {
   return (
     <div
       className={`flex items-center pl-6 w-[309px] h-[56px] rounded-lg border-2  ${
         selected ? 'border-main' : 'border-grey-border'
       }`}
     >
-      <input type="radio" name={name} id={id} className="hidden" />
+      <input
+        type="radio"
+        id={id}
+        className="hidden"
+        {...register(name!)}
+        value={value}
+      />
 
       <label
         htmlFor={id}
