@@ -1,7 +1,7 @@
 import type { Db, MongoClient } from 'mongodb'
 import type { NextApiRequest, NextApiResponse } from 'next/types'
 import { Dispatch, SetStateAction } from 'react'
-import { UseFormRegister } from 'react-hook-form'
+import { DeepMap, FieldError, UseFormRegister } from 'react-hook-form'
 
 export interface CartProduct {
   _id?: string
@@ -90,16 +90,18 @@ export interface TF {
     | 'name'
     | 'address'
     | 'phone'
+    | 'email'
     | 'zip'
     | 'city'
     | 'country'
     | 'e-moneypin'
     | 'e-moneynum'
-  id?: string
   placeholder: string
   label: string
   type?: 'text' | 'email' | 'tel' | 'number'
   register: UseFormRegister<CheckoutT>
+  errors: FieldError | undefined
+  className?: string
 }
 
 export interface RadioT {

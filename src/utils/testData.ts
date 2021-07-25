@@ -87,12 +87,9 @@ export const cartData = [
     quantity: 3,
     price: 899,
     image: {
-      mobile:
-        'https://res.cloudinary.com/mervyn/image/upload/v1624416987/assets/product-xx59-headphones/mobile/image-product.jpg',
-      tablet:
-        'https://res.cloudinary.com/mervyn/image/upload/v1624416987/assets/product-xx59-headphones/tablet/image-product.jpg',
-      desktop:
-        'https://res.cloudinary.com/mervyn/image/upload/v1624416987/assets/product-xx59-headphones/desktop/image-product.jpg',
+      mobile: '/assets/product-xx59-headphones/mobile/image-product.jpg',
+      tablet: '/assets/product-xx59-headphones/tablet/image-product.jpg',
+      desktop: '/assets/product-xx59-headphones/desktop/image-product.jpg',
     },
   },
   {
@@ -101,12 +98,9 @@ export const cartData = [
     quantity: 6,
     price: 599,
     image: {
-      mobile:
-        'https://res.cloudinary.com/mervyn/image/upload/v1624416987/assets/product-yx1-earphones/mobile/image-product.jpg',
-      tablet:
-        'https://res.cloudinary.com/mervyn/image/upload/v1624416987/assets/product-yx1-earphones/tablet/image-product.jpg',
-      desktop:
-        'https://res.cloudinary.com/mervyn/image/upload/v1624416987/assets/product-yx1-earphones/desktop/image-product.jpg',
+      mobile: '/assets/product-yx1-earphones/mobile/image-product.jpg',
+      tablet: '/assets/product-yx1-earphones/tablet/image-product.jpg',
+      desktop: '/assets/product-yx1-earphones/desktop/image-product.jpg',
     },
   },
 ]

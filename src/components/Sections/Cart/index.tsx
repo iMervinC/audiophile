@@ -5,6 +5,7 @@ import { CartProduct } from '@/utils/types'
 import { useCartDispatch } from '@/utils/hooks'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
+import { totalCost } from '@/utils/helper'
 
 const Cart = ({
   items,
@@ -47,10 +48,7 @@ const Cart = ({
                   Total
                 </p>
                 <p className="inline-block float-right font-bold text-lg">
-                  ${' '}
-                  {items
-                    .map((item) => item.price! * item.quantity!)
-                    .reduce((acc, cur) => acc! + cur!)}
+                  $ {totalCost(items)}
                 </p>
               </div>
               <Button
