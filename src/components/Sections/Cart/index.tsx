@@ -1,11 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import Img from 'next/image'
-import { CartCounter, Button } from '@/components/UI'
+import { Button } from '@/components/UI'
 import { CartProduct } from '@/utils/types'
 import { useCartDispatch } from '@/utils/hooks'
-import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { totalCost } from '@/utils/helper'
+import { CartItems } from './CartItems'
 
 const Cart = ({
   items,
@@ -71,42 +70,4 @@ const Cart = ({
     </div>
   )
 }
-
-const CartItems = ({ product }: { product: CartProduct }) => {
-  const [count, setCount] = useState(product.quantity!)
-  const { updateItem, removeFromCart } = useCartDispatch()
-
-  useEffect(() => {
-    if (count > 0) {
-      updateItem({ ...product, quantity: count })
-    } else {
-      removeFromCart(product.slug!)
-    }
-  }, [count])
-
-  return (
-    <li className="flex items-center">
-      <Img
-        src={product.image!.mobile}
-        alt={product.slug}
-        height={64}
-        width={64}
-        className="rounded-lg"
-      />
-      <div className="flex flex-col space-y-1 ml-2">
-        <span className="font-bold text-base uppercase">{product.name}</span>
-        <span className="font-bold text-sm text-grey-shop">
-          $ {product.price! * product.quantity!}
-        </span>
-      </div>
-      <CartCounter
-        count={count}
-        setCount={setCount}
-        className="ml-auto"
-        title={product.slug}
-      />
-    </li>
-  )
-}
-
 export default Cart

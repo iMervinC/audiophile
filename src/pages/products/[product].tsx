@@ -117,7 +117,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   // Call an external API endpoint to get posts
   const { data } = await axios.get<Products>(
-    `http://localhost:3000/api/products/item/${params}`
+    `http://localhost:3000/api/products/item/${params!.product}`
   )
 
   return {

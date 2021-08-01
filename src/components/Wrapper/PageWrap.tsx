@@ -14,6 +14,7 @@ const PageWrap: FC<Layout> = ({ title, children, className }) => {
         <title>{title}</title>
         <link rel="icon" href="/vercel.svg" />
         <meta name="description" content="Your audio" />
+        
       </Head>
       <main className={className}>{children}</main>
     </>

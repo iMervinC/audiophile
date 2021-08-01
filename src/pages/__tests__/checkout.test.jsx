@@ -82,19 +82,19 @@ describe('Checkout Page', () => {
     expect(
       screen.getByRole('heading', { level: 3, name: /payment details/i })
     ).toBeInTheDocument()
-    const payment = screen.getByRole('radio', { name: /e-money/i })
+    const emoney = screen.getByRole('radio', { name: /e-money/i })
     const cod = screen.getByRole('radio', { name: /cash on delivery/i })
     const emonyNum = screen.queryByRole('textbox', { name: 'e-Money Number' })
     const emonyPin = screen.queryByRole('textbox', { name: 'e-Money PIN' })
     expect(emonyNum).not.toBeInTheDocument()
-    fireEvent.input(payment, {
-      target: {
-        value: 'test',
-      },
-    })
+    userEvent.click(emoney)
     expect(emonyNum).toBeInTheDocument()
   })
+
   it('Order Summary', () => {
     expect(screen.getByText('Summary')).toBeInTheDocument()
+    cartData.forEach(item => {
+      ``
+    })
   })
 })
