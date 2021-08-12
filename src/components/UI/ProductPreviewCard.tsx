@@ -2,9 +2,9 @@ import React, { Dispatch, SetStateAction } from 'react'
 import Image from 'next/image'
 import { Button, Counter } from '@/components/UI'
 import { Products } from '@/utils/types'
-import { useCartDispatch } from '@/utils/hooks'
 import { useRouter } from 'next/router'
-
+import { useAppDispatch } from '@/app/hooks'
+import { addToCart } from '@/features/cart/cartSplice'
 interface ProdPrev extends Products {
   index: number
 }
@@ -51,17 +51,20 @@ const ProductPreviewCard = (props: ProdPrev) => {
   )
 }
 
-export const ProductCard = ({
-  data,
-  quantity,
-  setQuantity,
-}: {
+interface ProductCardT {
   data: Products
   quantity: number
   setQuantity: Dispatch<SetStateAction<number>>
-}) => {
-  const { addToCart } = useCartDispatch()
+}
+
+export const ProductCard = ({ data, quantity, setQuantity }: ProductCardT) => {
   const { name, price, slug, image, description } = data
+  const dispatch = useAppDispatch()
+
+  const addToCartHandler = () => {
+    dispatch(addToCart({ name, slug, quantity, price, image }))
+  }
+
   return (
     <div
       data-testid="Product Card"
@@ -91,7 +94,7 @@ export const ProductCard = ({
           <Button
             label="Add To Cart"
             title="add-to-cart"
-            cb={() => addToCart({ name, slug, quantity, price, image })}
+            cb={addToCartHandler}
           />
         </div>
       </div>

@@ -1,15 +1,13 @@
 import Img from 'next/image'
 import { ButtonArrow } from '@/components/UI'
 
-export const CategoryCard = ({
-  categories,
-  className,
-  cb,
-}: {
+interface CategoryCardT {
   categories: string
   className?: string
   cb?: () => void
-}) => {
+}
+
+export const CategoryCard = ({ categories, className, cb }: CategoryCardT) => {
   return (
     <li className={`text-center sm:w-[350px] w-10/12  relative ${className}`}>
       <Img

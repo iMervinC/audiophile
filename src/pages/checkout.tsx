@@ -1,15 +1,15 @@
 import Img from 'next/image'
 import { PageWrap } from '@/components/Wrapper'
-import { useCartStore } from '@/utils/hooks'
 import { useRouter } from 'next/router'
 import { TextField, Radio, Button } from '@/components/UI'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { CheckoutT } from '@/utils/types'
 import { totalCost } from '@/utils/helper'
+import { useAppSelector } from '@/app/hooks'
 
 const Checkout = () => {
   const route = useRouter()
-  const { cart } = useCartStore()
+  const { cart } = useAppSelector((state) => state.cart)
   const {
     register,
     formState: { errors },

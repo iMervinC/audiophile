@@ -1,18 +1,18 @@
 import Img from 'next/image'
 import { CartCounter } from '@/components/UI'
 import { CartProduct } from '@/utils/types'
-import { useCartDispatch } from '@/utils/hooks'
 import { useEffect, useState } from 'react'
+import { useAppDispatch } from '@/app/hooks'
+import { updateCart, deleteFromCart } from '@/features/cart/cartSplice'
 
 export const CartItems = ({ product }: { product: CartProduct }) => {
   const [count, setCount] = useState(product.quantity!)
-  const { updateItem, removeFromCart } = useCartDispatch()
-
+  const dispatch = useAppDispatch()
   useEffect(() => {
     if (count > 0) {
-      updateItem({ ...product, quantity: count })
+      dispatch(() => updateCart({ ...product, quantity: count }))
     } else {
-      removeFromCart(product.slug!)
+      dispatch(() => deleteFromCart(product.slug!))
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [count])

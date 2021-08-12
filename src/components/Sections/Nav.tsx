@@ -3,9 +3,10 @@ import Img from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { CategoryCard } from '@/components/UI'
-import { useGetScroll, useCartStore } from '@/utils/hooks'
+import { useGetScroll } from '@/utils/hooks'
 import { Navigation } from '@/utils/types'
 import { Cart } from '@/components/Sections'
+import { useAppSelector } from '@/app/hooks'
 
 const Nav = () => {
   const route = useRouter()
@@ -15,7 +16,8 @@ const Nav = () => {
   const [cartToggle, setCartToggle] = useState(false)
   const [nav, setNav] = useState('home')
   const [scroll, setScroll] = useState(false)
-  const { cart } = useCartStore()
+  // const { cart } = useCartStore()
+  const { cart } = useAppSelector((state) => state.cart)
 
   useEffect(() => {
     const storedNav = localStorage.getItem('Nav') || 'home'

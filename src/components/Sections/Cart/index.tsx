@@ -1,10 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Button } from '@/components/UI'
 import { CartProduct } from '@/utils/types'
-import { useCartDispatch } from '@/utils/hooks'
 import { useRouter } from 'next/router'
 import { totalCost } from '@/utils/helper'
 import { CartItems } from './CartItems'
+import { useAppDispatch } from '@/app/hooks'
+import { clearCart } from '@/features/cart/cartSplice'
 
 const Cart = ({
   items,
@@ -15,7 +16,7 @@ const Cart = ({
   closeNav: () => void
   scroll: boolean
 }) => {
-  const { clearCart } = useCartDispatch()
+  const dipatch = useAppDispatch()
   const route = useRouter()
   return (
     <div
@@ -33,7 +34,7 @@ const Cart = ({
               <h6 className="inline-block">Cart ({items.length})</h6>
               <span
                 className="underline text-grey-shop cursor-pointer float-right"
-                onClick={clearCart}
+                onClick={() => dipatch(clearCart())}
               >
                 Remove all
               </span>
