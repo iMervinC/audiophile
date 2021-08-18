@@ -8,11 +8,19 @@ import { updateCart, deleteFromCart } from '@/features/cart/cartSplice'
 export const CartItems = ({ product }: { product: CartProduct }) => {
   const [count, setCount] = useState(product.quantity!)
   const dispatch = useAppDispatch()
+
+  const updateHandler = () => {
+    dispatch(updateCart({ ...product, quantity: count }))
+  }
+  const deleteHandler = () => {
+    dispatch(deleteFromCart(product.slug!))
+  }
+
   useEffect(() => {
     if (count > 0) {
-      dispatch(() => updateCart({ ...product, quantity: count }))
+      updateHandler()
     } else {
-      dispatch(() => deleteFromCart(product.slug!))
+      deleteHandler()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [count])

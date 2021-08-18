@@ -34,18 +34,17 @@ const cartSlice = createSlice({
         (item) => item.slug !== action.payload
       )
 
-      state = {
-        ...state,
-        cart: [...filltered],
-      }
+      state.cart = filltered
     },
     updateCart(state, action: PayloadAction<CartProduct>) {
       const updateIdex = state.cart.findIndex(
         (item) => item.slug === action.payload.slug
       )
+
       const updateCart = state.cart
       updateCart[updateIdex] = action.payload
-      state.cart = updateCart
+      // state.cart = updateCart
+      state = { cart: updateCart }
     },
     clearCart(state) {
       state.cart = []
