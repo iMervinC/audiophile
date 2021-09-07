@@ -16,3 +16,7 @@ export const totalCost = (cart: CartProduct[]) => {
       .reduce((acc, cur) => acc! + cur!)
   )
 }
+
+export const sortByNew = (a: Products, b: Products) => {
+  return a.new === b.new ? 0 : a.new ? -1 : 1
+}
